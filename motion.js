@@ -25,6 +25,7 @@ class FrameSequence {
         this.loaded = 0;
         this.currentFrame = 0;
         this.textShown = false;
+        this.ticking = false;
         this.init();
     }
     init() {
@@ -47,6 +48,15 @@ class FrameSequence {
         this.drawFrame(this.currentFrame);
     }
     onScroll() {
+        if (!this.ticking) {
+            requestAnimationFrame(() => {
+                this.updateSequence();
+                this.ticking = false;
+            });
+            this.ticking = true;
+        }
+    }
+    updateSequence() {
         const section = document.getElementById('hero-sequence');
         if (!section) return;
         const rect = section.getBoundingClientRect();
@@ -276,8 +286,8 @@ class CinematicCursor {
     loop() {
         this.rx += (this.mx - this.rx) * 0.12;
         this.ry += (this.my - this.ry) * 0.12;
-        this.dot.style.left = this.mx + 'px'; this.dot.style.top = this.my + 'px';
-        this.ring.style.left = this.rx + 'px'; this.ring.style.top = this.ry + 'px';
+        this.dot.style.transform = `translate3d(${this.mx - 3}px, ${this.my - 3}px, 0)`;
+        this.ring.style.transform = `translate3d(${this.rx - 19}px, ${this.ry - 19}px, 0)`;
         requestAnimationFrame(() => this.loop());
     }
 }
@@ -307,22 +317,33 @@ class TiltCards {
     constructor() {
         if (isMobile) return;
         document.querySelectorAll('.glass, .portfolio-card, .service-card, .stat-card').forEach(card => {
+            let ticking = false;
+            let bounds = null;
+            card.addEventListener('mouseenter', () => {
+                bounds = card.getBoundingClientRect();
+            });
             card.addEventListener('mousemove', e => {
-                const r = card.getBoundingClientRect();
-                const x = (e.clientX - r.left) / r.width;
-                const y = (e.clientY - r.top) / r.height;
-                const tiltX = (y - 0.5) * -7;
-                const tiltY = (x - 0.5) * 7;
-                card.style.transform = `perspective(1000px) rotateX(${tiltX}deg) rotateY(${tiltY}deg) scale(1.01)`;
-                card.style.transition = 'transform 0.1s ease';
-                
-                // Expose mouse coordinate relative to card for gradient glow reflection in CSS
-                const px = (e.clientX - r.left);
-                const py = (e.clientY - r.top);
-                card.style.setProperty('--mouse-x', `${px}px`);
-                card.style.setProperty('--mouse-y', `${py}px`);
+                if (!bounds) bounds = card.getBoundingClientRect();
+                if (!ticking) {
+                    requestAnimationFrame(() => {
+                        const x = (e.clientX - bounds.left) / bounds.width;
+                        const y = (e.clientY - bounds.top) / bounds.height;
+                        const tiltX = (y - 0.5) * -7;
+                        const tiltY = (x - 0.5) * 7;
+                        card.style.transform = `perspective(1000px) rotateX(${tiltX}deg) rotateY(${tiltY}deg) scale(1.01)`;
+                        card.style.transition = 'transform 0.15s cubic-bezier(0.25, 0.46, 0.45, 0.94)';
+                        
+                        const px = (e.clientX - bounds.left);
+                        const py = (e.clientY - bounds.top);
+                        card.style.setProperty('--mouse-x', `${px}px`);
+                        card.style.setProperty('--mouse-y', `${py}px`);
+                        ticking = false;
+                    });
+                    ticking = true;
+                }
             });
             card.addEventListener('mouseleave', () => {
+                bounds = null;
                 card.style.transform = 'perspective(1000px) rotateX(0) rotateY(0) scale(1)';
                 card.style.transition = 'transform 0.8s var(--ease-spring)';
             });
@@ -365,6 +386,7 @@ class NavController {
         this.lastScroll = 0;
         this.sections = document.querySelectorAll('section[id]');
         this.links = document.querySelectorAll('.nav-link');
+        this.ticking = false;
         window.addEventListener('scroll', () => this.onScroll(), { passive: true });
         if (this.btt) this.btt.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
         document.querySelectorAll('a[href^="#"]').forEach(a => {
@@ -376,6 +398,15 @@ class NavController {
         });
     }
     onScroll() {
+        if (!this.ticking) {
+            requestAnimationFrame(() => {
+                this.updateNav();
+                this.ticking = false;
+            });
+            this.ticking = true;
+        }
+    }
+    updateNav() {
         const y = window.scrollY;
         const max = document.documentElement.scrollHeight - window.innerHeight;
         if (this.progress) this.progress.style.width = (y / max * 100) + '%';
