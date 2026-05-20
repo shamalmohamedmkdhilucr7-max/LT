@@ -1,0 +1,483 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Light Tower Illumination | GCC's Premier LED Facade Specialists</title>
+    <meta name="description" content="Light Tower Illumination — 26 years of world-class LED facade solutions across the GCC. Trusted by governments and private enterprises in Oman and beyond.">
+    <link rel="icon" type="image/jpeg" href="logo.jpg">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&family=DM+Sans:wght@300;400;500;600&family=JetBrains+Mono:wght@300;400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Ambient Glow Layers -->
+    <div class="glow-blob glow-purple"></div>
+    <div class="glow-blob glow-blue"></div>
+    <div class="glow-blob glow-magenta"></div>
+    <div class="glow-blob glow-gold"></div>
+
+    <!-- Noise -->
+    <svg class="noise"><filter id="noise"><feTurbulence type="fractalNoise" baseFrequency="0.65" numOctaves="3" stitchTiles="stitch"/><feColorMatrix type="saturate" values="0"/></filter><rect width="100%" height="100%" filter="url(#noise)"/></svg>
+
+    <!-- Scroll Progress -->
+    <div class="scroll-progress"></div>
+
+    <!-- Custom Cursor -->
+    <div class="cursor-dot"></div>
+    <div class="cursor-ring"></div>
+
+    <!-- Preloader -->
+    <div id="preloader">
+        <img src="logo.jpg" alt="Light Tower Logo" class="preloader-logo-img">
+        <div class="preloader-bar"><div class="preloader-fill"></div></div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="navbar hide-in-hero">
+        <div class="nav-inner">
+            <a href="#" class="nav-text-logo">LIGHT TOWER</a>
+            <div class="nav-links">
+                <a href="#about" class="nav-link">About</a>
+                <a href="#services" class="nav-link">Services</a>
+                <a href="#projects" class="nav-link">Portfolio</a>
+                <a href="#contact" class="btn btn-primary">Get a Quote</a>
+            </div>
+            <button class="hamburger" id="hamburger" aria-label="Toggle Menu">
+                <span></span><span></span><span></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-menu" id="mobile-menu">
+        <a href="#about" class="mobile-link">About</a>
+        <a href="#services" class="mobile-link">Services</a>
+        <a href="#projects" class="mobile-link">Portfolio</a>
+        <a href="#contact" class="mobile-cta">Get a Quote</a>
+    </div>
+
+    <main>
+        <!-- ═══ HERO — Scroll-Driven Image Sequence ═══ -->
+        <section id="hero-sequence">
+            <div class="hero-sticky">
+                <div class="hero-canvas">
+                    <canvas id="hero-canvas"></canvas>
+                </div>
+                <div class="hero-overlay"></div>
+                <canvas id="hero-particles" class="hero-particles"></canvas>
+
+                <!-- Hero Content -->
+                <div class="container hero-content">
+                    <h1 class="hero-ref-title">ENGINEERED LIGHT.<br>TIMELESS IMPACT.</h1>
+                    <p class="hero-ref-sub">Architectural Lighting Solutions That Define Excellence.</p>
+                    <a href="#projects" class="hero-ref-btn">EXPLORE OUR SOLUTIONS</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- ═══ ABOUT ═══ -->
+        <section id="about" class="section bg-gradient">
+            <div class="container">
+                <div class="about-grid">
+                    <div class="about-image" data-reveal="fade-right">
+                        <img src="WhatsApp%20Image%202026-05-19%20at%2012.37.30.jpeg" alt="Modern building with LED lighting" loading="lazy">
+                    </div>
+                    <div>
+                        <span class="eyebrow" data-reveal="fade-up">ABOUT US</span>
+                        <h2 class="section-title" data-reveal="fade-up" data-delay="100">
+                            <span class="dark">ENGINEERED LIGHT.</span><br>
+                            <span class="accent">TIMELESS</span> <span class="dark">IMPACT.</span>
+                        </h2>
+                        <div class="accent-border" data-reveal="fade-up" data-delay="200">
+                            <p class="body-text">Light Tower Lightings is a leading architectural lighting company in Oman, specializing in large-scale façade, tower, commercial and festive lighting installations. For over 26 years, we have delivered exceptional lighting solutions that enhance visibility, elevate beauty and create lasting impact.</p>
+                        </div>
+                        <div data-reveal="fade-up" data-delay="250" style="margin-top: 20px;">
+                            <p class="arabic-text">نحو تحويل المعالم إلى تجارب مضيئة.</p>
+                        </div>
+
+                        <div class="about-stats" data-reveal="fade-up" data-delay="300">
+                            <div class="stat-card glass">
+                                <div class="stat-icon">
+                                    <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                                </div>
+                                <div class="stat-number" data-counter="26" data-suffix="+">0</div>
+                                <div class="stat-label">YEARS</div>
+                                <div class="stat-desc">Experience</div>
+                            </div>
+                            <div class="stat-card glass">
+                                <div class="stat-icon">
+                                    <svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                                </div>
+                                <div class="stat-number">OMAN</div>
+                                <div class="stat-label">& GCC</div>
+                                <div class="stat-desc">Wide Presence</div>
+                            </div>
+                            <div class="stat-card glass">
+                                <div class="stat-icon">
+                                    <svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+                                </div>
+                                <div class="stat-number" data-counter="1000" data-suffix="+">0</div>
+                                <div class="stat-label">PROJECTS</div>
+                                <div class="stat-desc">Completed</div>
+                            </div>
+                            <div class="stat-card glass">
+                                <div class="stat-icon">
+                                    <svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+                                </div>
+                                <div class="stat-number" data-counter="150" data-suffix="+">0</div>
+                                <div class="stat-label">SKILLED</div>
+                                <div class="stat-desc">Professionals</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ═══ SERVICES ═══ -->
+        <section id="services" class="section bg-gradient">
+            <div class="container">
+                <div class="services-layout">
+                    <div>
+                        <span class="eyebrow" data-reveal="fade-up">OUR SERVICES</span>
+                        <h2 class="section-title" data-reveal="fade-up" data-delay="100">
+                            <span class="dark">LIGHTING THAT</span><br>
+                            <span class="accent">TRANSFORMS</span><br>
+                            <span class="dark">SPACES.</span>
+                        </h2>
+                        <div class="accent-border" data-reveal="fade-up" data-delay="200">
+                            <p class="body-text">From architectural facades to festive celebrations, our comprehensive lighting solutions bring your vision to life with precision engineering and artistic excellence.</p>
+                        </div>
+                        <div data-reveal="fade-up" data-delay="250" style="margin-top: 16px;">
+                            <p class="arabic-text">من الواجهات المعمارية إلى الاحتفالات، حلول الإضاءة الشاملة لدينا تحقق رؤيتك بدقة هندسية وتميز فني.</p>
+                        </div>
+                    </div>
+                    <div class="service-cards">
+                        <div class="service-card glass" data-reveal="fade-up" data-delay="0">
+                            <div class="service-card-bg" style="background-image: url('WhatsApp%20Image%202026-05-19%20at%2012.37.31.jpeg');"></div>
+                            <div class="service-card-overlay"></div>
+                            <span class="service-num">01</span>
+                            <div class="service-icon-wrap">
+                                <svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+                            </div>
+                            <div class="service-card-content">
+                                <div class="service-title">ARCHITECTURAL LIGHTING</div>
+                                <div class="service-arabic">إضاءة معمارية</div>
+                            </div>
+                            <div class="service-arrow">→</div>
+                        </div>
+                        <div class="service-card glass" data-reveal="fade-up" data-delay="80">
+                            <div class="service-card-bg" style="background-image: url('WhatsApp%20Image%202026-05-19%20at%2012.37.30%20(1).jpeg');"></div>
+                            <div class="service-card-overlay"></div>
+                            <span class="service-num">02</span>
+                            <div class="service-icon-wrap">
+                                <svg viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
+                            </div>
+                            <div class="service-card-content">
+                                <div class="service-title">TOWER ILLUMINATION</div>
+                                <div class="service-arabic">إضاءة الأبراج</div>
+                            </div>
+                            <div class="service-arrow">→</div>
+                        </div>
+                        <div class="service-card glass" data-reveal="fade-up" data-delay="160">
+                            <div class="service-card-bg" style="background-image: url('WhatsApp%20Image%202026-05-19%20at%2012.37.30.jpeg');"></div>
+                            <div class="service-card-overlay"></div>
+                            <span class="service-num">03</span>
+                            <div class="service-icon-wrap">
+                                <svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><path d="M3 9h18"/><path d="M9 21V9"/></svg>
+                            </div>
+                            <div class="service-card-content">
+                                <div class="service-title">FACADE LIGHTING</div>
+                                <div class="service-arabic">إضاءة الواجهات</div>
+                            </div>
+                            <div class="service-arrow">→</div>
+                        </div>
+                        <div class="service-card glass" data-reveal="fade-up" data-delay="240">
+                            <div class="service-card-bg" style="background-image: url('WhatsApp%20Image%202026-05-19%20at%2012.37.29.jpeg');"></div>
+                            <div class="service-card-overlay"></div>
+                            <span class="service-num">04</span>
+                            <div class="service-icon-wrap">
+                                <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                            </div>
+                            <div class="service-card-content">
+                                <div class="service-title">FESTIVE LIGHTING</div>
+                                <div class="service-arabic">إضاءة المناسبات</div>
+                            </div>
+                            <div class="service-arrow">→</div>
+                        </div>
+                        <div class="service-card glass" data-reveal="fade-up" data-delay="320">
+                            <div class="service-card-bg" style="background-image: url('WhatsApp%20Image%202026-05-19%20at%2012.37.31.jpeg');"></div>
+                            <div class="service-card-overlay"></div>
+                            <span class="service-num">05</span>
+                            <div class="service-icon-wrap">
+                                <svg viewBox="0 0 24 24"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
+                            </div>
+                            <div class="service-card-content">
+                                <div class="service-title">COMMERCIAL INSTALLATIONS</div>
+                                <div class="service-arabic">تركيبات تجارية</div>
+                            </div>
+                            <div class="service-arrow">→</div>
+                        </div>
+                        <div class="service-card glass" data-reveal="fade-up" data-delay="400">
+                            <div class="service-card-bg" style="background-image: url('WhatsApp%20Image%202026-05-19%20at%2012.37.30%20(1).jpeg');"></div>
+                            <div class="service-card-overlay"></div>
+                            <span class="service-num">06</span>
+                            <div class="service-icon-wrap">
+                                <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M8 14s1.5 2 4 2 4-2 4-2"/><line x1="9" y1="9" x2="9.01" y2="9"/><line x1="15" y1="9" x2="15.01" y2="9"/></svg>
+                            </div>
+                            <div class="service-card-content">
+                                <div class="service-title">EVENT LIGHTING</div>
+                                <div class="service-arabic">إضاءة الفعاليات</div>
+                            </div>
+                            <div class="service-arrow">→</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ═══ METHODOLOGY ═══ -->
+        <section class="section bg-dark">
+            <div class="container">
+                <span class="eyebrow" data-reveal="fade-up">OUR METHODOLOGY</span>
+                <h2 class="section-title" data-reveal="fade-up" data-delay="100">
+                    <span class="light">Three things we</span><br>
+                    <span class="accent">never compromise</span> <span class="light">on.</span>
+                </h2>
+                <div style="margin-top: 48px;">
+                    <div class="method-item" data-reveal="fade-up" data-delay="0">
+                        <div class="method-num">[01]</div>
+                        <div>
+                            <h3 class="method-title">Engineering Precision</h3>
+                            <p class="method-desc">Every diode is calibrated. Our master engineers integrate lighting architectures that respect the original design, ensuring flawless execution from blueprint to switch-on.</p>
+                        </div>
+                    </div>
+                    <div class="method-item" data-reveal="fade-up" data-delay="120">
+                        <div class="method-num">[02]</div>
+                        <div>
+                            <h3 class="method-title">Material Excellence</h3>
+                            <p class="method-desc">Sourced globally, engineered for the Gulf. Components guaranteed to withstand environmental extremes while maintaining absolute chromatic fidelity.</p>
+                        </div>
+                    </div>
+                    <div class="method-item" data-reveal="fade-up" data-delay="240" style="border-bottom: 1px solid var(--border-color);">
+                        <div class="method-num">[03]</div>
+                        <div>
+                            <h3 class="method-title">Executional Certainty</h3>
+                            <p class="method-desc">Proven across GCC governments. Two and a half decades of delivering perfection on time, cementing our reputation as the absolute gold standard in illumination.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ═══ PORTFOLIO ═══ -->
+        <section id="projects" class="section bg-dark" style="border-top: 1px solid var(--border-color);">
+            <div class="container">
+                <div style="display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 48px; flex-wrap: wrap; gap: 24px;">
+                    <div>
+                        <span class="eyebrow" data-reveal="fade-up">PORTFOLIO</span>
+                        <h2 class="section-title" data-reveal="fade-up" data-delay="100" style="margin-bottom: 0;">
+                            <span class="light">Projects that</span> <span class="accent">speak</span> <span class="light">for themselves.</span>
+                        </h2>
+                    </div>
+                    <a href="#contact" class="btn btn-secondary" data-reveal="fade-up" data-delay="200">Start Your Project</a>
+                </div>
+
+                <div class="portfolio-grid">
+                    <div class="portfolio-card glass" data-reveal="fade-up" data-delay="0">
+                        <div class="portfolio-img">
+                            <img src="WhatsApp%20Image%202026-05-19%20at%2012.37.31.jpeg" alt="Avenues Mall Facade" loading="lazy">
+                        </div>
+                        <div class="portfolio-info">
+                            <div class="portfolio-tag">OMAN · RETAIL</div>
+                            <div class="portfolio-name">Avenues Mall Facade</div>
+                        </div>
+                    </div>
+                    <div class="portfolio-card glass" data-reveal="fade-up" data-delay="100">
+                        <div class="portfolio-img">
+                            <img src="WhatsApp%20Image%202026-05-19%20at%2012.37.30%20(1).jpeg" alt="Crescent Calligraphy" loading="lazy">
+                        </div>
+                        <div class="portfolio-info">
+                            <div class="portfolio-tag">UAE · CELEBRATION</div>
+                            <div class="portfolio-name">Crescent Calligraphy</div>
+                        </div>
+                    </div>
+                    <div class="portfolio-card glass" data-reveal="fade-up" data-delay="150">
+                        <div class="portfolio-img">
+                            <img src="WhatsApp%20Image%202026-05-19%20at%2012.37.30.jpeg" alt="Heritage District" loading="lazy">
+                        </div>
+                        <div class="portfolio-info">
+                            <div class="portfolio-tag">QATAR · HERITAGE</div>
+                            <div class="portfolio-name">Heritage District</div>
+                        </div>
+                    </div>
+                    <div class="portfolio-card glass" data-reveal="fade-up" data-delay="250">
+                        <div class="portfolio-img">
+                            <img src="WhatsApp%20Image%202026-05-19%20at%2012.37.29.jpeg" alt="Royal Palace Arch" loading="lazy">
+                        </div>
+                        <div class="portfolio-info">
+                            <div class="portfolio-tag">KSA · SOVEREIGN</div>
+                            <div class="portfolio-name">Royal Palace Arch</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ═══ TESTIMONIAL ═══ -->
+        <section class="section bg-gradient">
+            <div class="container" style="text-align: center;">
+                <span class="eyebrow" data-reveal="fade-up" style="margin: 0 auto 20px; display: inline-flex;">CLIENT VOICES</span>
+                <h2 class="section-title" data-reveal="fade-up" data-delay="100" style="margin: 0 auto 48px;">
+                    <span class="dark">What our clients say</span> <span class="accent">after the lights go on.</span>
+                </h2>
+                <div class="testimonial-card glass" data-reveal="scale-up" data-delay="200">
+                    <p class="testimonial-quote">"The facade illumination of our mall has become a landmark in the city. Their precision is unmatched."</p>
+                    <div class="testimonial-name">TARIQ AL-FARSI</div>
+                    <div class="testimonial-role">Project Manager, Muscat Commercial</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ═══ CONTACT ═══ -->
+        <section id="contact" class="section contact-section">
+            <!-- Background Image + Overlay -->
+            <div class="contact-bg-image">
+                <img src="WhatsApp%20Image%202026-05-19%20at%2012.37.30.jpeg" alt="" loading="lazy">
+            </div>
+            <div class="contact-bg-overlay"></div>
+
+            <div class="container contact-content">
+                <div class="contact-grid">
+                    <div>
+                        <span class="eyebrow" data-reveal="fade-up">GET IN TOUCH</span>
+                        <h2 class="section-title" data-reveal="fade-up" data-delay="100">
+                            <span class="dark">LET'S</span><br>
+                            <span class="accent">ILLUMINATE</span><br>
+                            <span class="dark">YOUR NEXT PROJECT.</span>
+                        </h2>
+                        <p class="body-text" data-reveal="fade-up" data-delay="200">Have a vision? Let us bring it to life. Our team of expert engineers and designers are ready to transform your architectural dreams into luminous reality.</p>
+                        <p class="arabic-text" data-reveal="fade-up" data-delay="250" style="margin-top: 12px;">لديك رؤية؟ دعنا نحولها إلى واقع مضيء.</p>
+
+                        <div style="margin-top: 32px;">
+                            <div class="contact-info-block" data-reveal="fade-up" data-delay="300">
+                                <div class="contact-icon">
+                                    <svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+                                </div>
+                                <div>
+                                    <div class="contact-label">PHONE</div>
+                                    <div class="contact-detail">+968 1234 5678</div>
+                                </div>
+                            </div>
+                            <div class="contact-info-block" data-reveal="fade-up" data-delay="350">
+                                <div class="contact-icon">
+                                    <svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+                                </div>
+                                <div>
+                                    <div class="contact-label">EMAIL</div>
+                                    <div class="contact-detail">info@lighttoweroman.com</div>
+                                </div>
+                            </div>
+                            <div class="contact-info-block" data-reveal="fade-up" data-delay="400">
+                                <div class="contact-icon">
+                                    <svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                                </div>
+                                <div>
+                                    <div class="contact-label">LOCATION</div>
+                                    <div class="contact-detail">P.O. Box 123, Muscat, Sultanate of Oman</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div data-reveal="fade-left" data-delay="200">
+                        <div class="contact-form glass">
+                            <div class="form-title">
+                                <svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+                                SEND US A MESSAGE
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <div class="form-input-icon">
+                                        <svg viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+                                    </div>
+                                    <input type="text" class="form-input" placeholder="Your Name">
+                                </div>
+                                <div class="form-group">
+                                    <div class="form-input-icon">
+                                        <svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+                                    </div>
+                                    <input type="email" class="form-input" placeholder="Your Email">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="form-input-icon">
+                                    <svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+                                </div>
+                                <input type="tel" class="form-input" placeholder="Phone Number">
+                            </div>
+                            <div class="form-group">
+                                <select class="form-input no-icon">
+                                    <option value="" disabled selected>Project Type</option>
+                                    <option>Architectural Lighting</option>
+                                    <option>Facade Lighting</option>
+                                    <option>Festive Lighting</option>
+                                    <option>Commercial Installation</option>
+                                    <option>Event Lighting</option>
+                                    <option>Other</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <textarea class="form-input no-icon" placeholder="Tell us about your project"></textarea>
+                            </div>
+                            <button class="form-submit">
+                                SEND MESSAGE
+                                <svg viewBox="0 0 24 24"><path d="M22 2L11 13"/><path d="M22 2l-7 20-4-9-9-4 20-7z"/></svg>
+                            </button>
+                            <p class="form-privacy">
+                                <svg viewBox="0 0 24 24"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+                                Your information is safe with us. We respect your privacy.
+                            </p>
+                        </div>
+
+                        <a href="https://wa.me/96812345678" class="whatsapp-btn" target="_blank">
+                            <div class="wa-left">
+                                <div class="wa-icon">
+                                    <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+                                </div>
+                                <div>
+                                    <div class="wa-text-label">CHAT WITH US ON WHATSAPP</div>
+                                    <div class="wa-text-number">+968 1234 5678</div>
+                                </div>
+                            </div>
+                            <div class="wa-arrow">
+                                <svg viewBox="0 0 24 24"><path d="M5 12h14"/><path d="M12 5l7 7-7 7"/></svg>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-inner">
+                <div class="footer-logo-text">LIGHT TOWER ILLUMINATION</div>
+                <div style="font-size: 11px; color: var(--text-muted); letter-spacing: 0.15em; text-transform: uppercase;">EST. 1998 · MUSCAT, OMAN</div>
+            </div>
+            <p class="footer-copy">© 2026 Light Tower Illumination. Crafted with precision. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Back to Top -->
+    <button class="back-to-top" aria-label="Back to Top">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="24" height="24"><path d="M12 19V5M5 12l7-7 7 7"/></svg>
+    </button>
+
+    <script src="motion.js"></script>
+</body>
+</html>
