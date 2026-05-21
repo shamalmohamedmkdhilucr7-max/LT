@@ -100,10 +100,14 @@ class FrameSequence {
             }
         }, { passive: true });
 
-        if (prefersReducedMotion) {
+        if (prefersReducedMotion || isMobile) {
             const img = new Image();
-            img.onload = () => { this._paint(img); this.preloader?.complete(); };
-            img.src = 'scroll%20animation/ezgif-frame-001.jpg';
+            img.onload = () => {
+                this._paint(img);
+                this.preloader?.complete();
+                if (this.hero) this.hero.classList.add('visible');
+            };
+            img.src = 'scroll%20animation/frame-001.webp';
             return;
         }
 
@@ -136,7 +140,7 @@ class FrameSequence {
         const img = new Image();
         img.decoding = 'async';
         img.onload = () => { this.imgs[i] = img; if (cb) cb(img); };
-        img.src = `scroll%20animation/ezgif-frame-${String(i + 1).padStart(3, '0')}.jpg`;
+        img.src = `scroll%20animation/frame-${String(i + 1).padStart(3, '0')}.webp`;
     }
 
     _cacheLayout() {

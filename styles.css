@@ -1441,6 +1441,12 @@ select.form-input {
         gap: 24px;
     }
 }
+@media (max-width: 1024px) {
+    #hero-sequence {
+        height: 100vh;
+        height: 100svh;
+    }
+}
 @media (max-width: 768px) {
     .cursor-dot, .cursor-ring {
         display: none;
@@ -1459,7 +1465,8 @@ select.form-input {
         display: flex;
     }
     #hero-sequence {
-        height: 250vh;
+        height: 100vh;
+        height: 100svh;
     }
     .hero-content {
         padding: 0 24px;
