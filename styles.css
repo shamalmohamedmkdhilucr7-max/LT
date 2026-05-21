@@ -166,9 +166,11 @@ body {
     transition: opacity 1s var(--ease-out-expo);
 }
 .preloader-logo-img {
-    height: 90px;
+    width: 260px;
+    height: auto;
+    max-width: 85vw;
     mix-blend-mode: screen;
-    filter: brightness(1.2) contrast(1.1);
+    filter: invert(1) hue-rotate(180deg) brightness(1.2) contrast(1.2);
     animation: preloaderPulse 1.8s ease-in-out infinite;
 }
 .preloader-bar {
