@@ -20,7 +20,7 @@ class FrameSequence {
         if (!this.canvas) return;
         this.ctx = this.canvas.getContext('2d');
         this.heroContent = document.querySelector('.hero-content');
-        this.frameCount = 151;
+        this.frameCount = 76;
         this.images = [];
         this.loaded = 0;
         this.currentFrame = 0;
