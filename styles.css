@@ -423,6 +423,7 @@ body {
     padding: clamp(120px, 16vh, 220px) 0;
     position: relative;
     z-index: 1;
+    contain: layout style;
 }
 
 /* ─── Section Backgrounds ─── */
@@ -548,6 +549,11 @@ body {
     width: 100%;
     height: 100%;
     object-fit: cover;
+    will-change: transform, filter;
+    transform: translate3d(0, 0, 0);
+    transform-origin: center center;
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
 }
 .hero-overlay {
     position: absolute;
@@ -1531,4 +1537,55 @@ select.form-input {
     .wa-text-number {
         font-size: 15px;
     }
+}
+
+/* ─── PERFORMANCE-OPTIMIZED CINEMATIC EXTENSIONS ─── */
+
+/* 1. Ambient Glow Blobs — long slow drift, compositor-only */
+@keyframes driftPurple {
+    0%, 100% { transform: translate3d(0, 0, 0) scale(1); }
+    50%       { transform: translate3d(6vw, 5vh, 0) scale(1.1); }
+}
+@keyframes driftBlue {
+    0%, 100% { transform: translate3d(0, 0, 0) scale(1.05); }
+    50%       { transform: translate3d(-5vw, -6vh, 0) scale(0.96); }
+}
+@keyframes driftMagenta {
+    0%, 100% { transform: translate3d(0, 0, 0) scale(1); }
+    50%       { transform: translate3d(4vw, -3vh, 0) scale(1.08); }
+}
+@keyframes driftGold {
+    0%, 100% { transform: translate3d(0, 0, 0) scale(1.04); }
+    50%       { transform: translate3d(-5vw, 4vh, 0) scale(0.93); }
+}
+
+.glow-purple { animation: driftPurple 36s ease-in-out infinite; }
+.glow-blue    { animation: driftBlue   42s ease-in-out infinite; }
+.glow-magenta { animation: driftMagenta 38s ease-in-out infinite; }
+.glow-gold    { animation: driftGold   32s ease-in-out infinite; }
+
+/* Pause blob drift when user prefers reduced motion */
+@media (prefers-reduced-motion: reduce) {
+    .glow-purple, .glow-blue, .glow-magenta, .glow-gold {
+        animation: none;
+    }
+}
+
+/* 2. GPU-composited card transitions */
+.service-card, .portfolio-card, .stat-card, .glass {
+    will-change: transform;
+    transition: transform 0.7s var(--ease-spring),
+                border-color 0.4s ease,
+                box-shadow 0.5s var(--ease-out-expo);
+}
+/* Fast responsive tilt while mouse is moving */
+.service-card.tilting, .portfolio-card.tilting,
+.stat-card.tilting, .glass.tilting {
+    transition: transform 0.12s cubic-bezier(0.25, 0.46, 0.45, 0.94) !important;
+}
+
+/* 3. Kinetic word wrappers — keep overflow hidden so words clip cleanly */
+.kinetic-section > span {
+    display: inline-block;
+    vertical-align: bottom;
 }
