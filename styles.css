@@ -637,6 +637,45 @@ body {
     box-shadow: 0 0 30px rgba(0, 212, 255, 0.25);
 }
 
+/* ─── Hero Logo Badge (Bottom-Left) ─── */
+.hero-logo-badge {
+    position: absolute;
+    bottom: clamp(28px, 5vh, 56px);
+    left: clamp(28px, 4vw, 64px);
+    z-index: 10;
+    display: block;
+    text-decoration: none;
+    pointer-events: auto;
+    animation: logoBadgeFadeIn 1.8s var(--ease-out-expo) 0.6s both;
+}
+.hero-logo-badge img {
+    width: clamp(110px, 13vw, 180px);
+    height: auto;
+    display: block;
+    object-fit: contain;
+    filter: drop-shadow(0 0 18px rgba(212, 160, 23, 0.55))
+            drop-shadow(0 4px 12px rgba(0, 0, 0, 0.8));
+    transition: filter 0.5s var(--ease-out-expo), transform 0.5s var(--ease-out-expo);
+}
+.hero-logo-badge:hover img {
+    filter: drop-shadow(0 0 28px rgba(212, 160, 23, 0.85))
+            drop-shadow(0 6px 20px rgba(0, 0, 0, 0.9));
+    transform: scale(1.06);
+}
+@keyframes logoBadgeFadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+@media (max-width: 480px) {
+    .hero-logo-badge img {
+        width: clamp(80px, 22vw, 110px);
+    }
+    .hero-logo-badge {
+        bottom: 20px;
+        left: 20px;
+    }
+}
+
 /* ═══ ABOUT SECTION ═══ */
 .about-grid {
     display: grid;
