@@ -989,56 +989,6 @@ body {
     color: var(--text-muted);
 }
 
-/* ─── TESTIMONIAL ─── */
-.testimonial-card {
-    max-width: 900px;
-    margin: 0 auto;
-    padding: 64px clamp(24px, 6vw, 64px);
-    background: var(--card-bg);
-    border: 1px solid var(--border-color);
-    backdrop-filter: blur(28px);
-    -webkit-backdrop-filter: blur(28px);
-    text-align: center;
-    position: relative;
-    will-change: transform, border-color, box-shadow;
-}
-.testimonial-card::before {
-    content: '“';
-    position: absolute;
-    top: 24px;
-    left: 50%;
-    transform: translateX(-50%);
-    font-family: var(--font-display);
-    font-size: 110px;
-    color: var(--neon-purple);
-    opacity: 0.15;
-    line-height: 1;
-}
-.testimonial-quote {
-    font-family: var(--font-display);
-    font-size: clamp(24px, 3.5vw, 36px);
-    font-style: normal;
-    line-height: 1.5;
-    color: var(--white);
-    margin-bottom: 40px;
-    position: relative;
-    z-index: 2;
-}
-.testimonial-name {
-    font-family: var(--font-mono);
-    font-size: 12px;
-    font-weight: 500;
-    text-transform: uppercase;
-    letter-spacing: 0.2em;
-    color: var(--magenta);
-}
-.testimonial-role {
-    font-size: 12px;
-    color: var(--text-muted);
-    margin-top: 8px;
-    text-transform: uppercase;
-    letter-spacing: 0.1em;
-}
 
 /* ═══ CONTACT SECTION ═══ */
 .contact-section {
