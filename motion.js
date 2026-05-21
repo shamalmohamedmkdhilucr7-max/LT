@@ -340,6 +340,15 @@ class KineticText {
         const walk = node => {
             if (node.nodeType === 3) {
                 const frag = document.createDocumentFragment();
+                let isAccent = false, isLight = false, isDark = false;
+                let p = node.parentNode;
+                while (p && p !== el) {
+                    if (p.classList.contains('accent')) isAccent = true;
+                    if (p.classList.contains('light')) isLight = true;
+                    if (p.classList.contains('dark')) isDark = true;
+                    p = p.parentNode;
+                }
+
                 node.textContent.split(/(\s+)/).forEach(part => {
                     if (!part.trim()) {
                         frag.appendChild(document.createTextNode(part));
@@ -350,6 +359,11 @@ class KineticText {
                         inner.textContent = part;
                         const d = this.delay + idx * this.stagger;
                         inner.style.cssText = `display:inline-block;transform:translateY(110%);opacity:0;transition:transform .7s var(--ease-out-expo) ${d}ms,opacity .45s ease ${d}ms`;
+                        
+                        if (isAccent) inner.classList.add('accent');
+                        if (isLight) inner.classList.add('light');
+                        if (isDark) inner.classList.add('dark');
+
                         outer.appendChild(inner);
                         frag.appendChild(outer);
                         words.push(inner);
