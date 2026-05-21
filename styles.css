@@ -172,9 +172,10 @@ body {
     gap: 15px;
 }
 .preloader-logo-img {
-    width: 140px;
+    width: 280px;
     height: auto;
-    max-width: 60vw;
+    max-width: 75vw;
+    margin-bottom: -70px;
     animation: preloaderPulse 1.8s ease-in-out infinite;
 }
 .preloader-text-logo {
