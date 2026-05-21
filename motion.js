@@ -100,7 +100,7 @@ class FrameSequence {
             }
         }, { passive: true });
 
-        if (prefersReducedMotion || isMobile) {
+        if (prefersReducedMotion) {
             const img = new Image();
             img.onload = () => {
                 this.imgs[0] = img;
@@ -153,7 +153,7 @@ class FrameSequence {
 
     _resize() {
         this.cw = this.canvas.width = window.innerWidth;
-        this.ch = this.canvas.height = isMobile ? window.innerWidth * (1080 / 1920) : window.innerHeight;
+        this.ch = this.canvas.height = window.innerHeight;
         if (this.cur >= 0 && this.imgs[this.cur]) this._paint(this.imgs[this.cur]);
     }
 
