@@ -103,6 +103,8 @@ class FrameSequence {
         if (prefersReducedMotion || isMobile) {
             const img = new Image();
             img.onload = () => {
+                this.imgs[0] = img;
+                this.cur = 0;
                 this._paint(img);
                 this.preloader?.complete();
                 if (this.hero) this.hero.classList.add('visible');
@@ -151,7 +153,7 @@ class FrameSequence {
 
     _resize() {
         this.cw = this.canvas.width = window.innerWidth;
-        this.ch = this.canvas.height = window.innerHeight;
+        this.ch = this.canvas.height = isMobile ? window.innerWidth * (1080 / 1920) : window.innerHeight;
         if (this.cur >= 0 && this.imgs[this.cur]) this._paint(this.imgs[this.cur]);
     }
 
