@@ -637,12 +637,12 @@ body {
     box-shadow: 0 0 30px rgba(0, 212, 255, 0.25);
 }
 
-/* ─── Hero Logo Badge (Bottom-Left) ─── */
+/* ─── Hero Logo Badge (Top-Left) ─── */
 .hero-logo-badge {
     position: absolute;
-    bottom: clamp(28px, 5vh, 56px);
+    top: clamp(20px, 3vh, 36px);
     left: clamp(28px, 4vw, 64px);
-    z-index: 10;
+    z-index: 15;
     display: block;
     text-decoration: none;
     pointer-events: auto;
@@ -671,8 +671,8 @@ body {
         width: clamp(80px, 22vw, 110px);
     }
     .hero-logo-badge {
-        bottom: 20px;
-        left: 20px;
+        top: 16px;
+        left: 16px;
     }
 }
 
