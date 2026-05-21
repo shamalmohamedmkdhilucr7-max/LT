@@ -440,7 +440,7 @@ class CinematicCursor {
 
         window.addEventListener('mousemove', e => { mx = e.clientX; my = e.clientY; }, { passive: true });
 
-        document.querySelectorAll('a, button, .glass, .service-card, .portfolio-card').forEach(el => {
+        document.querySelectorAll('a, button, .glass, .service-card, .founder-card').forEach(el => {
             el.addEventListener('mouseenter', () => { this.ring.classList.add('hover'); this.dot.style.opacity = '0'; });
             el.addEventListener('mouseleave', () => { this.ring.classList.remove('hover'); this.dot.style.opacity = '1'; });
         });
@@ -494,7 +494,7 @@ class TiltCards {
     constructor() {
         if (isMobile || prefersReducedMotion) return;
 
-        document.querySelectorAll('.glass, .portfolio-card, .service-card, .stat-card').forEach(card => {
+        document.querySelectorAll('.glass, .founder-card, .service-card, .stat-card').forEach(card => {
             let raf = 0, bounds = null, lx = 0, ly = 0;
 
             card.addEventListener('mouseenter', () => {

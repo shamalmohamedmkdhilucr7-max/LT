@@ -921,55 +921,72 @@ body {
     max-width: 720px;
 }
 
-/* ─── PORTFOLIO ─── */
-.portfolio-grid {
+/* ─── FOUNDERS ─── */
+.founder-grid {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    gap: 36px;
+    gap: 48px;
 }
-.portfolio-card {
+.founder-card {
     background: var(--card-bg);
     border: 1px solid var(--border-color);
+    border-radius: 8px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
     transition: all 0.6s var(--ease-out-expo);
     will-change: transform, border-color, box-shadow;
 }
-.portfolio-card:hover {
+.founder-card:hover {
     transform: translateY(-12px);
     border-color: var(--border-hover);
     box-shadow: 0 30px 70px rgba(0, 0, 0, 0.7);
 }
-.portfolio-img {
-    aspect-ratio: 16/10;
+.founder-img {
+    aspect-ratio: 4/5;
     overflow: hidden;
     position: relative;
     border-bottom: 1px solid var(--border-color);
+    background: #090909;
 }
-.portfolio-img img {
+.founder-img img {
     width: 100%;
     height: 100%;
     object-fit: cover;
+    object-position: center 20%;
     transition: transform 1.5s var(--ease-out-expo);
 }
-.portfolio-card:hover .portfolio-img img {
-    transform: scale(1.06);
+.founder-card:hover .founder-img img {
+    transform: scale(1.04);
 }
-.portfolio-info {
-    padding: 36px;
+.founder-info {
+    padding: 40px;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
 }
-.portfolio-tag {
+.founder-tag {
     font-family: var(--font-mono);
-    font-size: 10px;
+    font-size: 11px;
     font-weight: 500;
     text-transform: uppercase;
-    letter-spacing: 0.2em;
+    letter-spacing: 0.25em;
     color: var(--gold);
-    margin-bottom: 12px;
+    margin-bottom: 16px;
 }
-.portfolio-name {
+.founder-name {
     font-family: var(--font-display);
-    font-size: 28px;
+    font-size: clamp(24px, 2.5vw, 32px);
     font-weight: 400;
     color: var(--white);
+    margin-bottom: 20px;
+    line-height: 1.2;
+}
+.founder-desc {
+    font-family: var(--font-body);
+    font-size: 15px;
+    line-height: 1.7;
+    color: var(--text-muted);
 }
 
 /* ─── TESTIMONIAL ─── */
@@ -1478,7 +1495,7 @@ select.form-input {
     .cursor-dot, .cursor-ring {
         display: none;
     }
-    .portfolio-grid, .service-cards {
+    .founder-grid, .service-cards {
         grid-template-columns: 1fr;
         gap: 32px;
     }
@@ -1574,13 +1591,13 @@ select.form-input {
 }
 
 /* 2. Card transitions — will-change managed by JS on hover only */
-.service-card, .portfolio-card, .stat-card, .glass {
+.service-card, .founder-card, .stat-card, .glass {
     transition: transform 0.65s var(--ease-spring),
                 border-color 0.35s ease,
                 box-shadow 0.45s var(--ease-out-expo);
 }
 /* Fast responsive tilt while mouse is over the card */
-.service-card.tilting, .portfolio-card.tilting,
+.service-card.tilting, .founder-card.tilting,
 .stat-card.tilting, .glass.tilting {
     will-change: transform;
     transition: transform 0.1s cubic-bezier(0.25, 0.46, 0.45, 0.94) !important;
