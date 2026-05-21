@@ -165,10 +165,27 @@ body {
     justify-content: center;
     transition: opacity 1s var(--ease-out-expo);
 }
+.preloader-logo-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+}
 .preloader-logo-img {
-    width: 260px;
+    width: 140px;
     height: auto;
-    max-width: 85vw;
+    max-width: 60vw;
+    animation: preloaderPulse 1.8s ease-in-out infinite;
+}
+.preloader-text-logo {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.8rem;
+    letter-spacing: 5px;
+    color: rgba(255, 255, 255, 0.95);
+    margin: 0;
+    font-weight: 400;
+    text-align: center;
+    text-transform: uppercase;
     animation: preloaderPulse 1.8s ease-in-out infinite;
 }
 .preloader-bar {
