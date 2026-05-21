@@ -653,13 +653,9 @@ body {
     height: auto;
     display: block;
     object-fit: contain;
-    filter: drop-shadow(0 0 18px rgba(212, 160, 23, 0.55))
-            drop-shadow(0 4px 12px rgba(0, 0, 0, 0.8));
-    transition: filter 0.5s var(--ease-out-expo), transform 0.5s var(--ease-out-expo);
+    transition: transform 0.5s var(--ease-out-expo);
 }
 .hero-logo-badge:hover img {
-    filter: drop-shadow(0 0 28px rgba(212, 160, 23, 0.85))
-            drop-shadow(0 6px 20px rgba(0, 0, 0, 0.9));
     transform: scale(1.06);
 }
 @keyframes logoBadgeFadeIn {
