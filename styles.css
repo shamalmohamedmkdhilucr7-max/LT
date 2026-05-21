@@ -59,13 +59,12 @@ body {
 .glow-blob {
     position: absolute;
     border-radius: 50%;
-    filter: blur(160px);
+    filter: blur(100px);
     pointer-events: none;
     z-index: 0;
-    opacity: 0.28;
-    mix-blend-mode: screen;
-    will-change: transform, opacity;
+    opacity: 0.22;
     transform: translate3d(0,0,0);
+    contain: strict;
 }
 .glow-purple {
     background: radial-gradient(circle, var(--neon-purple) 0%, rgba(157, 78, 221, 0) 70%);
@@ -102,7 +101,8 @@ body {
     inset: 0;
     pointer-events: none;
     z-index: 9998;
-    opacity: 0.04;
+    opacity: 0.025;
+    contain: strict;
 }
 
 /* ─── Scroll Progress & Cursor ─── */
@@ -424,6 +424,8 @@ body {
     position: relative;
     z-index: 1;
     contain: layout style;
+    content-visibility: auto;
+    contain-intrinsic-size: auto 800px;
 }
 
 /* ─── Section Backgrounds ─── */
@@ -1571,17 +1573,17 @@ select.form-input {
     }
 }
 
-/* 2. GPU-composited card transitions */
+/* 2. Card transitions — will-change managed by JS on hover only */
 .service-card, .portfolio-card, .stat-card, .glass {
-    will-change: transform;
-    transition: transform 0.7s var(--ease-spring),
-                border-color 0.4s ease,
-                box-shadow 0.5s var(--ease-out-expo);
+    transition: transform 0.65s var(--ease-spring),
+                border-color 0.35s ease,
+                box-shadow 0.45s var(--ease-out-expo);
 }
-/* Fast responsive tilt while mouse is moving */
+/* Fast responsive tilt while mouse is over the card */
 .service-card.tilting, .portfolio-card.tilting,
 .stat-card.tilting, .glass.tilting {
-    transition: transform 0.12s cubic-bezier(0.25, 0.46, 0.45, 0.94) !important;
+    will-change: transform;
+    transition: transform 0.1s cubic-bezier(0.25, 0.46, 0.45, 0.94) !important;
 }
 
 /* 3. Kinetic word wrappers — keep overflow hidden so words clip cleanly */
