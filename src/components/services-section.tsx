@@ -1,6 +1,6 @@
 "use client";
 
-import React from "react";
+import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import { ServiceItem } from "../constants/content";
 
@@ -10,6 +10,15 @@ interface ServicesProps {
 }
 
 export default function ServicesSection({ locale, servicesData }: ServicesProps) {
+  const [currentImageIndex, setCurrentImageIndex] = useState(0);
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setCurrentImageIndex((prev) => prev + 1);
+    }, 5000);
+    return () => clearInterval(timer);
+  }, []);
+
   return (
     <section id="services" className="relative py-28 md:py-36 bg-transparent border-t border-[#a855f7]/5 overflow-hidden">
       {/* Background Ambient Glows — purple only */}
@@ -39,26 +48,35 @@ export default function ServicesSection({ locale, servicesData }: ServicesProps)
 
         {/* 4-column, 2-row Grid Layout */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-          {servicesData.map((service, index) => (
-            <Link
-              href={`/${locale}/services/${service.slug}`}
-              key={service.slug}
-              className="group relative aspect-[4/5] overflow-hidden rounded-2xl flex flex-col justify-end p-6 border border-[#a855f7]/10 hover:border-[#a855f7]/30 transition-all duration-700 bg-white/5 backdrop-blur-[2px] hover:scale-[1.02] hover:shadow-[0_25px_60px_-15px_rgba(168,85,247,0.15)] cursor-pointer"
-            >
-              {/* Service Card Background Image */}
-              <div
-                style={{ backgroundImage: `url("${service.image}")` }}
-                className="absolute inset-0 bg-cover bg-center group-hover:scale-105 transition-all duration-1000 ease-[cubic-bezier(0.16,1,0.3,1)] z-0"
-              />
+          {servicesData.map((service, index) => {
+            const images = [
+              service.image,
+              ...service.galleryImages.map((img) => `/images/Gallery and portfolio/${img}`)
+            ];
+
+            return (
+              <Link
+                href={`/${locale}/services/${service.slug}`}
+                key={service.slug}
+                className="group relative aspect-[4/5] overflow-hidden rounded-2xl flex flex-col justify-end p-6 border border-[#a855f7]/10 hover:border-[#a855f7]/30 transition-all duration-700 bg-white/5 backdrop-blur-[2px] hover:scale-[1.02] hover:shadow-[0_25px_60px_-15px_rgba(168,85,247,0.15)] cursor-pointer"
+              >
+                {/* Dynamic Service Card Background Images with Smooth Cross-Fade */}
+                {images.map((img, imgIdx) => {
+                  const isActive = imgIdx === (currentImageIndex % images.length);
+                  return (
+                    <div
+                      key={img}
+                      style={{ backgroundImage: `url("${img}")` }}
+                      className={`absolute inset-0 bg-cover bg-center transition-all duration-[1500ms] ease-in-out z-0 ${
+                        isActive ? "opacity-100 scale-105" : "opacity-0 scale-100"
+                      }`}
+                    />
+                  );
+                })}
               
               {/* Gradient Overlays — premium dark purple */}
               <div className="absolute inset-0 bg-gradient-to-t from-[#120524] via-[#120524]/60 to-transparent opacity-90 group-hover:opacity-80 transition-opacity duration-700 z-1" />
               <div className="absolute inset-0 bg-radial from-[#a855f7]/15 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700 z-1" />
-
-              {/* Top-Right Index (Elegant Garamond Serif Watermark) */}
-              <div className="absolute top-4 right-5 font-display text-base font-light text-white/30 group-hover:text-[#a855f7]/70 tracking-wider transition-colors duration-500 z-10 select-none">
-                0{index + 1}
-              </div>
 
               {/* Content */}
               <div className="relative z-10 flex flex-col gap-1.5">
@@ -85,8 +103,9 @@ export default function ServicesSection({ locale, servicesData }: ServicesProps)
                 </div>
               </div>
             </Link>
-          ))}
-        </div>
+          );
+        })}
+      </div>
 
       </div>
     </section>

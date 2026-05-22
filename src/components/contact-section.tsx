@@ -2,6 +2,7 @@
 
 import React, { useState } from "react";
 import { localizationContent } from "@/constants/content";
+import { Phone, Mail, MapPin, Award, Clock } from "lucide-react";
 
 interface ContactProps {
   locale: "en" | "ar";
@@ -114,8 +115,8 @@ export default function ContactSection({ locale }: ContactProps) {
             <div className="flex flex-col gap-6 mt-4">
               
                <div className="flex items-center gap-5 group">
-                <div className="w-12 h-12 rounded-2xl bg-white/10 backdrop-blur-[3px] border border-[#a855f7]/20 flex items-center justify-center group-hover:border-[#a855f7]/40 group-hover:bg-white/20 transition-all duration-500 shrink-0 shadow-sm">
-                  <span className="font-body text-[9px] text-[#c084fc] transition-colors uppercase font-bold tracking-wider">TEL</span>
+                <div className="w-12 h-12 flex items-center justify-center shrink-0">
+                  <Phone className="w-6 h-6 text-[#a855f7] drop-shadow-[0_0_12px_rgba(168,85,247,0.4)] group-hover:text-white group-hover:scale-110 group-hover:rotate-6 transition-all duration-500 ease-out" />
                 </div>
                 <div>
                   <div className="flex items-center gap-2">
@@ -123,15 +124,20 @@ export default function ContactSection({ locale }: ContactProps) {
                     <span className="text-[#a855f7]/30 text-[9px]">|</span>
                     <span className="font-body text-[9px] font-bold text-zinc-400 tracking-[0.15em] uppercase" dir="rtl">الهاتف</span>
                   </div>
-                  <a href="tel:+96898184233" className="font-body text-white text-sm md:text-base font-light hover:text-[#a855f7] transition-colors tracking-wider block mt-0.5">
-                    +968 9818 4233
-                  </a>
+                  <div className="flex flex-col gap-0.5 mt-0.5">
+                    <a href="tel:+96898184233" className="font-body text-white text-sm md:text-base font-light hover:text-[#a855f7] transition-colors tracking-wider">
+                      +968 9818 4233
+                    </a>
+                    <a href="tel:+96890153350" className="font-body text-white text-sm md:text-base font-light hover:text-[#a855f7] transition-colors tracking-wider">
+                      +968 9015 3350
+                    </a>
+                  </div>
                 </div>
               </div>
 
               <div className="flex items-center gap-5 group">
-                <div className="w-12 h-12 rounded-2xl bg-white/10 backdrop-blur-[3px] border border-[#a855f7]/20 flex items-center justify-center group-hover:border-[#a855f7]/40 group-hover:bg-white/20 transition-all duration-500 shrink-0 shadow-sm">
-                  <span className="font-body text-[9px] text-[#c084fc] transition-colors uppercase font-bold tracking-wider">MAIL</span>
+                <div className="w-12 h-12 flex items-center justify-center shrink-0">
+                  <Mail className="w-6 h-6 text-[#a855f7] drop-shadow-[0_0_12px_rgba(168,85,247,0.4)] group-hover:text-white group-hover:scale-110 group-hover:-rotate-6 transition-all duration-500 ease-out" />
                 </div>
                 <div>
                   <div className="flex items-center gap-2">
@@ -139,15 +145,15 @@ export default function ContactSection({ locale }: ContactProps) {
                     <span className="text-[#a855f7]/30 text-[9px]">|</span>
                     <span className="font-body text-[9px] font-bold text-zinc-400 tracking-[0.15em] uppercase" dir="rtl">البريد الإلكتروني</span>
                   </div>
-                  <a href="mailto:info@lighttoweroman.com" className="font-body text-white text-sm md:text-base font-light hover:text-[#a855f7] transition-colors block mt-0.5">
-                    info@lighttoweroman.com
+                  <a href="mailto:ltillumination06@gmail.com" className="font-body text-white text-sm md:text-base font-light hover:text-[#a855f7] transition-colors block mt-0.5">
+                    ltillumination06@gmail.com
                   </a>
                 </div>
               </div>
 
               <div className="flex items-center gap-5 group">
-                <div className="w-12 h-12 rounded-2xl bg-white/10 backdrop-blur-[3px] border border-[#a855f7]/20 flex items-center justify-center group-hover:border-[#a855f7]/40 group-hover:bg-white/20 transition-all duration-500 shrink-0 shadow-sm">
-                  <span className="font-body text-[9px] text-[#c084fc] transition-colors uppercase font-bold tracking-wider">LOC</span>
+                <div className="w-12 h-12 flex items-center justify-center shrink-0">
+                  <MapPin className="w-6 h-6 text-[#a855f7] drop-shadow-[0_0_12px_rgba(168,85,247,0.4)] group-hover:text-white group-hover:scale-110 group-hover:translate-y-[-2px] transition-all duration-500 ease-out" />
                 </div>
                 <div>
                   <div className="flex items-center gap-2">
@@ -155,15 +161,35 @@ export default function ContactSection({ locale }: ContactProps) {
                     <span className="text-[#a855f7]/30 text-[9px]">|</span>
                     <span className="font-body text-[9px] font-bold text-zinc-400 tracking-[0.15em] uppercase" dir="rtl">العنوان</span>
                   </div>
-                  <div className="font-body text-white text-sm md:text-base font-light leading-snug block mt-0.5">
-                    Azaiba, Muscat <span className="text-[#a855f7] font-medium">|</span> العذيبة، مسقط
+                  <div className="font-body text-white text-xs md:text-sm font-light leading-relaxed block mt-0.5">
+                    <p>Po. Box. No.125, 316 Postal Code, Mussannah, Al Maabela, Sultanate of Oman</p>
+                    <p className="text-zinc-300/80" dir="rtl">ص.ب ١٢٥، الرمز البريدي ٣١٦، المصنعة، المعبيلة، سلطنة عُمان</p>
                   </div>
                 </div>
               </div>
 
               <div className="flex items-center gap-5 group">
-                <div className="w-12 h-12 rounded-2xl bg-white/10 backdrop-blur-[3px] border border-[#a855f7]/20 flex items-center justify-center group-hover:border-[#a855f7]/40 group-hover:bg-white/20 transition-all duration-500 shrink-0 shadow-sm">
-                  <span className="font-body text-[9px] text-[#c084fc] transition-colors uppercase font-bold tracking-wider">HRS</span>
+                <div className="w-12 h-12 flex items-center justify-center shrink-0">
+                  <Award className="w-6 h-6 text-[#a855f7] drop-shadow-[0_0_12px_rgba(168,85,247,0.4)] group-hover:text-white group-hover:scale-110 group-hover:rotate-12 transition-all duration-500 ease-out" />
+                </div>
+                <div>
+                  <div className="flex items-center gap-2">
+                    <span className="font-body text-[9px] font-bold text-[#c084fc] tracking-[0.2em] uppercase">COMMERCIAL REGISTRATION</span>
+                    <span className="text-[#a855f7]/30 text-[9px]">|</span>
+                    <span className="font-body text-[9px] font-bold text-zinc-400 tracking-[0.15em] uppercase" dir="rtl">السجل التجاري</span>
+                  </div>
+                  <div className="mt-1">
+                    <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#a855f7]/10 border border-[#a855f7]/25 text-[#c084fc] font-body text-[10px] md:text-xs font-medium tracking-wide">
+                      <span className="w-1.5 h-1.5 rounded-full bg-[#a855f7] animate-pulse" />
+                      CR No: 1281868 <span className="opacity-40">|</span> سجل تجاري: ١٢٨١٨٦٨
+                    </span>
+                  </div>
+                </div>
+              </div>
+
+              <div className="flex items-center gap-5 group">
+                <div className="w-12 h-12 flex items-center justify-center shrink-0">
+                  <Clock className="w-6 h-6 text-[#a855f7] drop-shadow-[0_0_12px_rgba(168,85,247,0.4)] group-hover:text-white group-hover:scale-110 group-hover:rotate-[30deg] transition-all duration-500 ease-out" />
                 </div>
                 <div>
                   <div className="flex items-center gap-2">
@@ -308,8 +334,10 @@ export default function ContactSection({ locale }: ContactProps) {
               {/* top line glow */}
               <div className="absolute top-0 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-[#a855f7]/10 to-transparent" />
               <div className="flex items-center gap-4">
-                <div className="w-12 h-12 rounded-2xl bg-[#a855f7]/10 border border-[#a855f7]/20 flex items-center justify-center group-hover:border-[#a855f7]/40 transition-all duration-300 shrink-0">
-                  <span className="font-body text-[9px] text-[#a855f7] uppercase font-bold tracking-wider">WA</span>
+                <div className="w-12 h-12 flex items-center justify-center shrink-0">
+                  <svg className="w-6 h-6 text-[#a855f7] fill-[#a855f7] drop-shadow-[0_0_12px_rgba(168,85,247,0.4)] group-hover:text-green-400 group-hover:fill-green-400 group-hover:scale-110 transition-all duration-500 ease-out" viewBox="0 0 24 24">
+                    <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946C.06 5.348 5.397.01 12.008.01c3.202.001 6.212 1.246 8.477 3.514 2.266 2.268 3.507 5.28 3.505 8.484-.004 6.657-5.34 11.997-11.953 11.997-2.005-.001-3.973-.502-5.713-1.455L0 24zm6.59-11.597c-.148-.247-.543-.396-1.137-.693-.593-.298-3.505-1.73-4.049-1.928-.543-.198-.939-.297-1.334.297-.395.594-1.532 1.928-1.878 2.324-.346.396-.692.445-1.286.148-.593-.297-2.505-1.01-4.773-3.033-1.766-1.577-2.958-3.525-3.304-4.119-.346-.593-.037-.914.26-1.21.266-.268.593-.693.89-1.039.3-.346.396-.594.593-1.04.197-.445.099-.841-.049-1.138-.148-.297-1.334-3.21-1.829-4.4-.48-1.153-.967-.996-1.334-.996-.346-.003-.741-.003-1.137-.003-.396 0-1.039.148-1.582.742-.543.594-2.077 2.03-2.077 4.95 0 2.92 2.126 5.74 2.422 6.137.297.396 4.185 6.39 10.139 8.96 1.417.61 2.523.975 3.386 1.25.965.305 1.844.263 2.539.159.774-.116 2.378-.973 2.716-1.913.339-.94.339-1.748.238-1.913-.1-.165-.396-.264-.988-.562z"/>
+                  </svg>
                 </div>
                 <div className="text-left">
                   <div className="flex items-center gap-2">

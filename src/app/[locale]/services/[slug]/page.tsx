@@ -7,6 +7,7 @@ import { servicesData, localizationContent } from "../../../../constants/content
 import Navbar from "../../../../components/navbar";
 import Footer from "../../../../components/footer";
 import ServiceGallery from "../../../../components/service-gallery";
+import RotatingServiceHero from "../../../../components/rotating-service-hero";
 
 interface ServicePageProps {
   params: Promise<{
@@ -88,7 +89,6 @@ export default async function ServiceDetailPage({ params }: ServicePageProps) {
 
   const currentLocale = locale === "ar" ? "ar" : "en";
   const navData = localizationContent[currentLocale].nav;
-  const footerData = localizationContent[currentLocale].footer;
 
   const title = currentLocale === "ar" ? service.arabicTitle : service.title;
 
@@ -101,10 +101,12 @@ export default async function ServiceDetailPage({ params }: ServicePageProps) {
     "provider": {
       "@type": "LocalBusiness",
       "name": "Light Tower Illumination",
-      "telephone": "00968-98184233",
+      "telephone": "+968 98184233, +968 90153350",
+      "email": "ltillumination06@gmail.com",
       "address": {
         "@type": "PostalAddress",
-        "addressLocality": "Muscat",
+        "streetAddress": "Po. Box. No.125, 316 Postal Code, Mussannah, Al Maabela",
+        "addressLocality": "Sultanate of Oman",
         "addressCountry": "OM"
       }
     },
@@ -112,12 +114,36 @@ export default async function ServiceDetailPage({ params }: ServicePageProps) {
     "serviceType": "Architectural Illumination"
   };
 
+  // JSON-LD BreadcrumbList Schema for Google Search Snippets
+  const breadcrumbSchema = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": currentLocale === "ar" ? "الرئيسية" : "Home",
+        "item": `https://lighttoweroman.com/${currentLocale}`
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": title,
+        "item": `https://lighttoweroman.com/${currentLocale}/services/${slug}`
+      }
+    ]
+  };
+
   return (
     <>
-      {/* Inject Schema */}
+      {/* Inject Structured Schemas */}
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(schemaMarkup) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
       />
 
       <Navbar locale={currentLocale} navData={navData} />
@@ -126,10 +152,7 @@ export default async function ServiceDetailPage({ params }: ServicePageProps) {
         
         {/* Hero with Service Title */}
         <section className="relative h-[55vh] min-h-[400px] flex items-center justify-center overflow-hidden">
-          <div
-            style={{ backgroundImage: `url("${service.image}")` }}
-            className="absolute inset-0 bg-cover bg-center z-0 scale-105 filter brightness-[0.45] saturate-[0.8]"
-          />
+          <RotatingServiceHero galleryImages={service.galleryImages} defaultImage={service.image} />
           <div className="absolute inset-0 bg-gradient-to-b from-[#030308]/60 via-[#030308]/40 to-[#030308] z-1" />
           <div className="absolute inset-0 bg-radial from-[#a855f7]/10 to-transparent pointer-events-none" />
 
@@ -164,7 +187,7 @@ export default async function ServiceDetailPage({ params }: ServicePageProps) {
 
       </main>
 
-      <Footer locale={currentLocale} footerData={footerData} />
+      <Footer locale={currentLocale} />
     </>
   );
 }

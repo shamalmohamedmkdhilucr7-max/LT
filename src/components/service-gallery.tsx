@@ -78,16 +78,17 @@ export default function ServiceGallery({ locale, galleryImages, serviceTitle }: 
               <div
                 key={imgName}
                 onClick={() => openLightbox(idx)}
-                className="group relative aspect-[4/3] rounded-xl overflow-hidden border border-[#a855f7]/15 hover:border-[#a855f7]/40 cursor-pointer shadow-lg hover:scale-[1.03] transition-all duration-500"
+                className="group relative aspect-[4/3] sm:aspect-[16/10] rounded-xl overflow-hidden border border-[#a855f7]/15 hover:border-[#a855f7]/40 cursor-pointer shadow-lg hover:scale-[1.03] transition-all duration-500 bg-[#07030f]"
               >
-                {/* Background image in true color — no white overlay */}
-                <div
-                  style={{ backgroundImage: `url("${imagePath}")` }}
-                  className="absolute inset-0 bg-cover bg-center group-hover:scale-105 transition-all duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] z-0"
+                {/* High-fidelity full-window cover image */}
+                <img
+                  src={imagePath}
+                  alt={serviceTitle}
+                  className="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition-transform duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] z-0"
                 />
                 
-                {/* Subtle dark bottom gradient for hover text */}
-                <div className="absolute inset-0 bg-gradient-to-t from-[#05020a]/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-[1]" />
+                {/* Dark bottom gradient for text contrast */}
+                <div className="absolute inset-0 bg-gradient-to-t from-[#05020a]/90 via-[#05020a]/30 to-transparent opacity-80 group-hover:opacity-100 transition-opacity duration-500 z-[1]" />
 
                 {/* Info Overlay (Slides up on Hover) */}
                 <div className="absolute inset-x-0 bottom-0 p-5 z-10 translate-y-3 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] flex flex-col justify-end">

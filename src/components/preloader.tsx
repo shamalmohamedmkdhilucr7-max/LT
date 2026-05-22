@@ -86,7 +86,7 @@ export default function Preloader({ locale }: PreloaderProps) {
       {/* Elegant Corporate Logo with a breathing/pulsing animation */}
       <div className="relative flex flex-col items-center justify-center max-w-[80vw] z-10 transition-all duration-700">
         <img
-          src="/images/logo-white-text.png"
+          src="/images/logo-transparent.png"
           alt="Light Tower Illumination"
           className="w-64 md:w-80 lg:w-[350px] h-auto object-contain select-none animate-logo-pulse"
         />

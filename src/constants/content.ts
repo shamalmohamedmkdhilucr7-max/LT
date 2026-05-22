@@ -79,6 +79,7 @@ export interface ContentData {
     phone: string;
     email: string;
     location: string;
+    cr?: string;
     form: {
       title: string;
       name: string;
@@ -95,6 +96,7 @@ export interface ContentData {
   footer: {
     established: string;
     copy: string;
+    cr?: string;
   };
 }
 
@@ -183,9 +185,10 @@ export const localizationContent: Record<'en' | 'ar', ContentData> = {
       title2: "YOUR NEXT PROJECT.",
       desc: "Have a vision? Let us bring it to life. Our team of expert engineers and designers are ready to transform your architectural dreams into luminous reality.",
       arabicText: "لديك رؤية؟ دعنا نحولها إلى واقع مضيء.",
-      phone: "00968-98184233",
-      email: "info@lighttoweroman.com",
-      location: "P.O. Box 123, Muscat, Sultanate of Oman",
+      phone: "+968 98184233, +968 90153350",
+      email: "ltillumination06@gmail.com",
+      location: "Po. Box. No.125, 316 Postal Code, Mussannah, Al Maabela, Sultanate of Oman",
+      cr: "CR No: 1281868",
       form: {
         title: "SEND US A MESSAGE",
         name: "Your Name",
@@ -207,8 +210,9 @@ export const localizationContent: Record<'en' | 'ar', ContentData> = {
       }
     },
     footer: {
-      established: "EST. 1998 · MUSCAT, OMAN",
-      copy: "© 2026 Light Tower Illumination. Crafted with precision. All Rights Reserved."
+      established: "EST. 1998 · SULTANATE OF OMAN",
+      copy: "© 2026 Light Tower Illumination. Crafted with precision. All Rights Reserved.",
+      cr: "CR No: 1281868"
     }
   },
   ar: {
@@ -295,9 +299,10 @@ export const localizationContent: Record<'en' | 'ar', ContentData> = {
       title2: "مشروعك القادم.",
       desc: "هل لديك رؤية؟ دعنا نحولها إلى واقع مضيء. طاقم المهندسين والمصممين الخبراء لدينا مستعدون لتحويل أحلامك المعمارية إلى روائع مضيئة نابضة بالحياة.",
       arabicText: "لديك رؤية؟ دعنا نحولها إلى واقع مضيء.",
-      phone: "00968-98184233",
-      email: "info@lighttoweroman.com",
-      location: "ص.ب 123، مسقط، سلطنة عُمان",
+      phone: "+968 98184233, +968 90153350",
+      email: "ltillumination06@gmail.com",
+      location: "ص.ب 125، الرمز البريدي 316، المصنعة، المعبيلة، سلطنة عُمان",
+      cr: "رقم السجل التجاري: 1281868",
       form: {
         title: "أرسل لنا رسالة",
         name: "الاسم الكريم",
@@ -319,8 +324,9 @@ export const localizationContent: Record<'en' | 'ar', ContentData> = {
       }
     },
     footer: {
-      established: "تأسست عام 1998 · مسقط، سلطنة عُمان",
-      copy: "© 2026 لايت تاور للإضاءة. صُنعت بدقة متناهية. جميع الحقوق محفوظة."
+      established: "تأسست عام 1998 · سلطنة عُمان",
+      copy: "© 2026 لايت تاور للإضاءة. صُنعت بدقة متناهية. جميع الحقوق محفوظة.",
+      cr: "رقم السجل التجاري: 1281868"
     }
   }
 };
@@ -357,22 +363,14 @@ export const servicesData: ServiceItem[] = [
     image: "/images/Service Sections/commercial buildings.png",
     galleryImages: [
       "image (3).png",
-      "image (4).png",
       "image (5).png",
       "image (6).png",
-      "image (12).png",
-      "image (20).png",
-      "image (21).png",
+      "image (9).png",
+      "image (23).png",
       "image (31).png",
       "image (34).png",
-      "image (35).png",
-      "image (39).png",
-      "image (41).png",
-      "image (46).png",
-      "image (51).png",
-      "image (52).png",
-      "image (53).png",
-      "image (54).png"
+      "image (45).png",
+      "image (65).png"
     ],
     faqs: [
       {
@@ -414,11 +412,13 @@ export const servicesData: ServiceItem[] = [
     image: "/images/Service Sections/festive markets.png",
     galleryImages: [
       "image (2).png",
+      "image (7).png",
       "image (11).png",
       "image (16).png",
+      "image (17).png",
       "image (22).png",
-      "image (23).png",
-      "image (24).png"
+      "image (30).png",
+      "image (62).png"
     ],
     faqs: [
       {
@@ -433,7 +433,7 @@ export const servicesData: ServiceItem[] = [
     slug: "outlet-stores",
     title: "Outlet Stores",
     arabicTitle: "متاجر الأوتلت",
-    description: "Design bespoke interior and exterior retail environments that draw eyes and invite exploration. We craft high-fidelity lux showrooms, premium boutique illumination, and accent configurations calibrated to project absolute luxury and elevate brand value.",
+    description: "Design bespoke retail environments that draw eyes and invite exploration. We craft high-fidelity showrooms, premier boutique illumination, and accent configurations calibrated to project absolute luxury and elevate brand value.",
     arabicDescription: "تصميم بيئات تجزئة فاخرة ومخصصة تجذب الأنظار وتدعو للاستكشاف. نحن نصمم إضاءات صالات العرض الراقية والمتاجر النخبوية المصممة بعناية لتعكس الرقي المطلق وتزيد قيمة العلامة التجارية.",
     benefits: [
       "High color rendering index (CRI 90+) presenting luxury goods perfectly",
@@ -461,10 +461,12 @@ export const servicesData: ServiceItem[] = [
     galleryImages: [
       "image (18).png",
       "image (19).png",
-      "image (28).png",
-      "image (49).png",
-      "image (50).png",
-      "image (55).png"
+      "image (27).png",
+      "image (32).png",
+      "image (33).png",
+      "image (38).png",
+      "image (40).png",
+      "image (49).png"
     ],
     faqs: [
       {
@@ -505,8 +507,14 @@ export const servicesData: ServiceItem[] = [
     ],
     image: "/images/Service Sections/ramdan, caligraphy.png",
     galleryImages: [
-      "image (14).png",
-      "image (15).png"
+      "image (15).png",
+      "image (35).png",
+      "image (44).png",
+      "image (46).png",
+      "image (47).png",
+      "image (48).png",
+      "image (50).png",
+      "image (63).png"
     ],
     faqs: [
       {
@@ -547,12 +555,14 @@ export const servicesData: ServiceItem[] = [
     ],
     image: "/images/Service Sections/shopping center.png",
     galleryImages: [
-      "image (29).png",
-      "image (30).png",
-      "image (40).png",
+      "image (4).png",
+      "image (20).png",
+      "image (26).png",
+      "image (42).png",
       "image (43).png",
-      "image (44).png",
-      "image (48).png"
+      "image (53).png",
+      "image (54).png",
+      "image (61).png"
     ],
     faqs: [
       {
@@ -594,19 +604,13 @@ export const servicesData: ServiceItem[] = [
     image: "/images/Service Sections/towns and cities.png",
     galleryImages: [
       "image (1).png",
-      "image (7).png",
       "image (8).png",
-      "image (9).png",
-      "image (17).png",
-      "image (25).png",
-      "image (26).png",
-      "image (27).png",
-      "image (32).png",
-      "image (33).png",
-      "image (42).png",
-      "image (47).png",
-      "image (56).png",
-      "image (57).png"
+      "image (21).png",
+      "image (24).png",
+      "image (28).png",
+      "image (29).png",
+      "image (52).png",
+      "image (64).png"
     ],
     faqs: [
       {
@@ -648,9 +652,13 @@ export const servicesData: ServiceItem[] = [
     image: "/images/Service Sections/wedding and ceremony.png",
     galleryImages: [
       "image (10).png",
+      "image (12).png",
       "image (13).png",
+      "image (14).png",
+      "image (25).png",
       "image (37).png",
-      "image (38).png"
+      "image (56).png",
+      "image (59).png"
     ],
     faqs: [
       {
@@ -692,7 +700,13 @@ export const servicesData: ServiceItem[] = [
     image: "/images/Service Sections/Event in general.png",
     galleryImages: [
       "image (36).png",
-      "image (45).png"
+      "image (39).png",
+      "image (41).png",
+      "image (51).png",
+      "image (55).png",
+      "image (57).png",
+      "image (58).png",
+      "image (60).png"
     ],
     faqs: [
       {

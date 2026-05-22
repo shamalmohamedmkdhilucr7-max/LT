@@ -93,19 +93,20 @@ export default async function HomePage({ params }: PageProps) {
     "image": "https://lighttoweroman.com/images/about-building.webp",
     "@id": "https://lighttoweroman.com",
     "url": "https://lighttoweroman.com",
-    "telephone": "00968-98184233",
-    "email": "info@lighttoweroman.com",
+    "telephone": ["+968 98184233", "+968 90153350"],
+    "email": "ltillumination06@gmail.com",
     "priceRange": "$$$",
     "address": {
       "@type": "PostalAddress",
-      "streetAddress": "P.O. Box 123",
-      "addressLocality": "Muscat",
+      "streetAddress": "Po. Box. No.125, 316 Postal Code, Mussannah, Al Maabela",
+      "addressLocality": "Mussannah",
+      "addressRegion": "Al Batinah",
       "addressCountry": "OM"
     },
     "geo": {
       "@type": "GeoCoordinates",
-      "latitude": 23.5880,
-      "longitude": 58.3829
+      "latitude": 23.7915,
+      "longitude": 57.8188
     },
     "openingHoursSpecification": {
       "@type": "OpeningHoursSpecification",
@@ -114,13 +115,15 @@ export default async function HomePage({ params }: PageProps) {
         "Tuesday",
         "Wednesday",
         "Thursday",
+        "Saturday",
         "Sunday"
       ],
       "opens": "08:00",
       "closes": "18:00"
     },
     "sameAs": [
-      "https://wa.me/96898184233"
+      "https://wa.me/96898184233",
+      "https://wa.me/96890153350"
     ]
   };
 
@@ -141,6 +144,14 @@ export default async function HomePage({ params }: PageProps) {
         <HeroSequence locale={currentLocale} heroData={data.hero} />
 
         <div className="light-bg-section relative overflow-hidden animate-fadeIn">
+          {/* Subtle sovereign palace background watermark overlay for About section using image (60).png — shifted left for perfect alignment */}
+          <div className="absolute inset-0 pointer-events-none z-0 overflow-hidden select-none">
+            <div 
+              className="absolute top-[2%] left-[1%] md:left-[3vw] w-[85vw] md:w-[70vw] h-[65vh] max-w-[950px] opacity-[0.035] mix-blend-screen bg-no-repeat bg-left bg-contain"
+              style={{ backgroundImage: 'url("/images/Gallery%20and%20portfolio/image%20(60).png")' }}
+            />
+          </div>
+
           {/* Interactive purple mesh gradients */}
           <div 
             className="absolute top-[5%] left-[5%] w-[50vw] h-[50vw] max-w-[650px] rounded-full blur-[160px] pointer-events-none"
@@ -168,7 +179,7 @@ export default async function HomePage({ params }: PageProps) {
           />
 
           {/* Premium Gallery & Portfolio Section */}
-          <PortfolioSection locale={currentLocale} imageFilenames={imageFilenames} />
+          <PortfolioSection locale={currentLocale} />
 
           {/* Fully managed responsive Contact lead form */}
           <ContactSection locale={currentLocale} contactData={data.contact} />
@@ -176,7 +187,7 @@ export default async function HomePage({ params }: PageProps) {
       </main>
 
       {/* Global copyright footer */}
-      <Footer locale={currentLocale} footerData={data.footer} />
+      <Footer locale={currentLocale} />
     </>
   );
 }

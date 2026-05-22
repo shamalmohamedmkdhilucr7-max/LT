@@ -40,7 +40,7 @@ const FOUNDERS = [
     role: "MANAGING PARTNER",
     roleAr: "شريك إداري",
     initials: "OB",
-    image: "/images/othman bin said saif al masoudi.png",
+    image: "/images/othman%20bin%20said%20saif%20al%20masoudi.png",
   },
   {
     name: "SHEEFER H. SAIT",
@@ -48,7 +48,7 @@ const FOUNDERS = [
     role: "MANAGING PARTNER",
     roleAr: "شريك إداري",
     initials: "SH",
-    image: "/images/SHEEFER. H. SAIT.png",
+    image: "/images/SHEEFER.%20H.%20SAIT.png",
   },
 ];
 
@@ -273,11 +273,6 @@ function StatCounterCard({ stat, index }: StatCounterCardProps) {
       ref={cardRef}
       className="group relative flex flex-col justify-between p-8 bg-gradient-to-br from-[#120727]/60 to-[#05020a]/80 backdrop-blur-md border border-[#a855f7]/20 hover:border-[#a855f7]/45 hover:scale-[1.03] hover:-translate-y-1 transition-all duration-500 rounded-2xl shadow-[0_15px_40px_-15px_rgba(168,85,247,0.15)] hover:shadow-[0_24px_50px_-10px_rgba(168,85,247,0.3)] overflow-hidden"
     >
-      {/* Absolute faint large watermark index */}
-      <span className="font-body text-[100px] font-extrabold text-[#a855f7]/8 group-hover:text-[#a855f7]/12 select-none absolute right-4 -bottom-6 transition-colors duration-500 leading-none">
-        0{index + 1}
-      </span>
-      
       <div className="relative z-10 flex flex-col justify-between h-full">
         <div>
           {/* Metrics Number: Bright white-purple gradient for dark bg */}

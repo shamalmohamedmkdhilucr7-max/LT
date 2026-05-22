@@ -21,7 +21,7 @@ export default function LogoDisplay({
   if (showText) {
     return (
       <img
-        src="/images/logo-white-text.png"
+        src="/images/logo-transparent.png"
         alt="Light Tower Illumination"
         className={`${iconClass} w-auto object-contain select-none`}
       />
