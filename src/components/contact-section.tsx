@@ -67,22 +67,6 @@ export default function ContactSection({ locale }: ContactProps) {
 
   return (
     <section id="contact" className="relative py-28 md:py-36 bg-transparent border-t border-[#a855f7]/10 overflow-hidden flex items-center min-h-[90vh]">
-      {/* Premium Ambient Background Video Loop */}
-      <div className="absolute inset-0 w-full h-full z-0 overflow-hidden select-none pointer-events-none">
-        <video
-          autoPlay
-          loop
-          muted
-          playsInline
-          preload="auto"
-          className="absolute inset-0 w-full h-full object-cover opacity-[0.25]"
-        >
-          <source src="/videos/contact-bg.mp4" type="video/mp4" />
-        </video>
-        {/* Deep purple glassmorphic gradient overlay to guarantee perfect contrast and legibility */}
-        <div className="absolute inset-0 bg-gradient-to-br from-[#0c051e]/85 via-[#06030c]/92 to-black/96 backdrop-blur-[2px]" />
-      </div>
-
       {/* Absolute Ambient Spotlight Glows */}
       <div className="absolute top-[10%] left-[-15vw] w-[50vw] h-[50vw] rounded-full bg-radial from-[#a855f7]/4 to-transparent blur-[130px] pointer-events-none" />
       <div className="absolute bottom-[10%] right-[-15vw] w-[45vw] h-[45vw] rounded-full bg-radial from-[#a855f7]/4 to-transparent blur-[125px] pointer-events-none" />
