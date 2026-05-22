@@ -7,10 +7,17 @@ interface PreloaderProps {
 }
 
 export default function Preloader({ locale }: PreloaderProps) {
+  const [shouldRender, setShouldRender] = useState(() => {
+    if (typeof window !== "undefined") {
+      return !sessionStorage.getItem("hasLoadedLightTower");
+    }
+    return true;
+  });
   const [visible, setVisible] = useState(true);
-  const [shouldRender, setShouldRender] = useState(true);
 
   useEffect(() => {
+    if (!shouldRender) return;
+
     // Fast preload essential frames in background
     const ESSENTIAL_FRAMES = 15;
     let loadedCount = 0;
@@ -33,6 +40,7 @@ export default function Preloader({ locale }: PreloaderProps) {
 
     const dismiss = () => {
       setVisible(false);
+      sessionStorage.setItem("hasLoadedLightTower", "true");
       setTimeout(() => setShouldRender(false), 800);
     };
 
@@ -60,7 +68,7 @@ export default function Preloader({ locale }: PreloaderProps) {
       clearTimeout(minTimer);
       clearTimeout(safetyTimeout);
     };
-  }, []);
+  }, [shouldRender]);
 
   if (!shouldRender) return null;
 
