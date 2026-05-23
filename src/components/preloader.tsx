@@ -164,6 +164,35 @@ export default function Preloader({ locale }: PreloaderProps) {
       };
     }
 
+    // At 100% load, spread cards stack into left and right columns to make center text 100% visible
+    if (percent === 100 && visible) {
+      const isEven = index % 2 === 0;
+      let tx = "0px";
+      let ty = "0px";
+      let rot = "0deg";
+      let scale = 1;
+      let opacity = 1;
+
+      if (index === 0) {
+        tx = "calc(1.1 * var(--card-spread-x, 24vw))"; ty = "-15px"; rot = "5deg"; scale = 0.88; opacity = 1;
+      } else if (index === 1) {
+        tx = "calc(-1.1 * var(--card-spread-x, 24vw))"; ty = "20px"; rot = "-6deg"; scale = 0.88; opacity = 1;
+      } else if (index === 2) {
+        tx = "calc(1.35 * var(--card-spread-x, 24vw))"; ty = "35px"; rot = "-3deg"; scale = 0.8; opacity = 0.85;
+      } else if (index === 3) {
+        tx = "calc(-1.35 * var(--card-spread-x, 24vw))"; ty = "-25px"; rot = "8deg"; scale = 0.8; opacity = 0.85;
+      } else if (index === 4) {
+        tx = "calc(1.6 * var(--card-spread-x, 24vw))"; ty = "-5px"; rot = "2deg"; scale = 0.72; opacity = 0.7;
+      }
+
+      return {
+        transform: `translate3d(${tx}, ${ty}, 0) rotate(${rot}) scale(${scale})`,
+        opacity,
+        zIndex: 50 - diff,
+        transition: "transform 1.4s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.9s ease-out",
+      };
+    }
+
     // Default stacking offsets for cards in the deck
     let transform = "translate3d(0, 0, 0) rotate(0deg) scale(1)";
     let opacity = 1;
@@ -245,15 +274,15 @@ export default function Preloader({ locale }: PreloaderProps) {
 
       {/* ─── Final State Big Typography (Rogue Studio Style) ─── */}
       {percent === 100 && (
-        <div className="absolute top-[6%] md:top-[8%] lg:top-[10%] left-0 right-0 flex flex-col items-center justify-center pointer-events-none select-none z-0 animate-fade-in-up">
+        <div className="absolute inset-0 flex flex-col items-center justify-center pointer-events-none select-none z-20 animate-fade-in-up">
           <div className="text-center flex flex-col items-center justify-center leading-none">
-            <span className="font-cormorant text-xl md:text-3xl lg:text-4xl font-light tracking-[0.25em] text-white uppercase">
+            <span className="font-cormorant text-2xl md:text-5xl lg:text-6xl font-light tracking-[0.25em] text-white uppercase">
               {isAr ? "إنارة المساحات •" : "CREATING SPACES *"}
             </span>
-            <span className="font-sans text-[7.5vw] md:text-[5.5vw] lg:text-[4.5vw] font-black tracking-tighter text-[#a855f7] drop-shadow-[0_0_20px_rgba(168,85,247,0.55)] uppercase leading-none my-2 md:my-3 font-stretch-condensed">
+            <span className="font-sans text-[11vw] md:text-[8vw] lg:text-[7vw] font-black tracking-tighter text-[#a855f7] drop-shadow-[0_0_25px_rgba(168,85,247,0.6)] uppercase leading-none my-3 md:my-4 font-stretch-condensed">
               {isAr ? "مبهرة" : "IMPOSSIBLE"}
             </span>
-            <span className="font-cormorant text-xl md:text-3xl lg:text-4xl font-light tracking-[0.25em] text-white uppercase">
+            <span className="font-cormorant text-2xl md:text-5xl lg:text-6xl font-light tracking-[0.25em] text-white uppercase">
               {isAr ? "للنسيان" : "TO IGNORE"}
             </span>
           </div>
@@ -266,40 +295,6 @@ export default function Preloader({ locale }: PreloaderProps) {
         {/* Card Deck Wrapper - Updated to Widescreen Landscape to match Portfolio Aspect and show full work */}
         <div className="relative w-[280px] h-[190px] md:w-[420px] md:h-[280px] flex items-center justify-center">
           
-          {/* Left Floating Card (Rogue Studio final state, fades in at 100%) */}
-          <div
-            style={{
-              opacity: percent === 100 && visible ? 0.85 : 0,
-              transform: percent === 100 && visible 
-                ? "translate3d(calc(-40% - 100px), 35px, 0) rotate(-12deg) scale(0.75) md:translate3d(calc(-50% - 160px), 50px, 0) md:rotate(-12deg) md:scale(1)" 
-                : !visible 
-                  ? "translate3d(-200vw, 40px, 0) rotate(-45deg) scale(0.6)"
-                  : "translate3d(0, 0, 0) rotate(0deg) scale(0.5)",
-              transition: "transform 1.3s cubic-bezier(0.85, 0, 0.15, 1), opacity 0.8s ease-out",
-            }}
-            className="absolute w-[120px] h-[80px] md:w-[170px] md:h-[115px] rounded-xl overflow-hidden border border-[#a855f7]/20 shadow-[0_15px_30px_rgba(0,0,0,0.6)] z-45 bg-[#030308]"
-          >
-            <img src="/images/Gallery%20and%20portfolio/image%20(8).png" alt="Landmark Work" className="w-full h-full object-cover select-none pointer-events-none" />
-            <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent" />
-          </div>
-
-          {/* Right Floating Card (Rogue Studio final state, fades in at 100%) */}
-          <div
-            style={{
-              opacity: percent === 100 && visible ? 0.85 : 0,
-              transform: percent === 100 && visible 
-                ? "translate3d(calc(40% + 100px), -35px, 0) rotate(8deg) scale(0.75) md:translate3d(calc(50% + 160px), -50px, 0) md:rotate(8deg) md:scale(1)" 
-                : !visible 
-                  ? "translate3d(200vw, -40px, 0) rotate(45deg) scale(0.6)"
-                  : "translate3d(0, 0, 0) rotate(0deg) scale(0.5)",
-              transition: "transform 1.3s cubic-bezier(0.85, 0, 0.15, 1), opacity 0.8s ease-out",
-            }}
-            className="absolute w-[120px] h-[80px] md:w-[170px] md:h-[115px] rounded-xl overflow-hidden border border-[#a855f7]/20 shadow-[0_15px_30px_rgba(0,0,0,0.6)] z-45 bg-[#030308]"
-          >
-            <img src="/images/Gallery%20and%20portfolio/image%20(15).png" alt="Landmark Work" className="w-full h-full object-cover select-none pointer-events-none" />
-            <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent" />
-          </div>
-
           {/* Main shuffling card stack */}
           {SHUFFLE_IMAGES.map((src, index) => {
             const isTopCard = index === cardIndex;
@@ -337,7 +332,14 @@ export default function Preloader({ locale }: PreloaderProps) {
         </div>
 
         {/* Digital Counter & Action Labels */}
-        <div className="flex flex-col items-center gap-1.5 mt-2">
+        <div
+          style={{
+            opacity: percent === 100 ? 0 : 1,
+            visibility: percent === 100 ? "hidden" : "visible",
+            transition: "opacity 0.4s ease-out, visibility 0.4s",
+          }}
+          className="flex flex-col items-center gap-1.5 mt-2"
+        >
           <span className="font-display text-4xl md:text-5xl font-extralight tracking-widest text-[#a855f7] drop-shadow-[0_0_15px_rgba(168,85,247,0.35)] select-none">
             {String(percent).padStart(2, "0")}%
           </span>
@@ -382,6 +384,14 @@ export default function Preloader({ locale }: PreloaderProps) {
 
       {/* Opposing marquee transitions, fadeInUp typography & doodle keyframes */}
       <style jsx>{`
+        #global-preloader {
+          --card-spread-x: 35vw;
+        }
+        @media (min-width: 768px) {
+          #global-preloader {
+            --card-spread-x: 25vw;
+          }
+        }
         @keyframes marqueeLeft {
           0% { transform: translate3d(0, 0, 0); }
           100% { transform: translate3d(-50%, 0, 0); }
