@@ -159,6 +159,7 @@ export default function Preloader({ locale }: PreloaderProps) {
   return (
     <div
       id="global-preloader"
+      suppressHydrationWarning={true}
       style={{
         transform: visible ? "translateY(0)" : "translateY(-100%)",
         pointerEvents: visible ? "auto" : "none",
@@ -175,25 +176,29 @@ export default function Preloader({ locale }: PreloaderProps) {
           `,
         }}
       />
-      {/* ─── Opposing Scrolling Text Banners (Rogue Studio Marquee) ─── */}
-      <div className="absolute inset-0 flex flex-col justify-center gap-24 pointer-events-none select-none z-0">
-        
-        {/* Top Marquee (Moving Left) */}
-        <div className="w-full overflow-hidden opacity-[0.07]">
-          <div className="flex w-max animate-marquee-left font-cormorant italic text-4xl md:text-[64px] uppercase tracking-[0.15em] text-[#a855f7]">
-            <span>LIGHT TOWER ILLUMINATION • INSPIRING EXPERIENCES • ARCHITECTURAL LIGHTING • </span>
-            <span>LIGHT TOWER ILLUMINATION • INSPIRING EXPERIENCES • ARCHITECTURAL LIGHTING • </span>
-          </div>
+      {/* ─── Stacked Cinematic Background Typography (Rogue Studio Style) ─── */}
+      <div 
+        style={{
+          transform: visible ? "scale(1) translateY(0)" : "scale(0.95) translateY(20px)",
+          opacity: visible ? 1 : 0,
+          transition: "transform 1.35s cubic-bezier(0.85, 0, 0.15, 1), opacity 1.1s ease-out",
+        }}
+        className="absolute inset-0 flex flex-col items-center justify-center pointer-events-none select-none z-0"
+      >
+        <div className="flex flex-col items-center text-center leading-[0.9] md:leading-[0.88] tracking-tight">
+          <span className="font-cormorant text-5xl sm:text-7xl md:text-8xl lg:text-[105px] uppercase font-light text-white opacity-[0.88]">
+            ILLUMINATING
+          </span>
+          <span className="font-cormorant text-5xl sm:text-7xl md:text-8xl lg:text-[105px] uppercase font-light text-white opacity-[0.88] flex items-center gap-2 md:gap-4 my-1">
+            SPACES <span className="text-[#a855f7] font-semibold select-none">*</span>
+          </span>
+          <span className="font-sans text-6xl sm:text-8xl md:text-[120px] lg:text-[145px] font-black uppercase text-[#21123b]/65 tracking-tighter scale-y-[1.3] my-4 py-2 block select-none">
+            INSPIRING
+          </span>
+          <span className="font-cormorant text-5xl sm:text-7xl md:text-8xl lg:text-[105px] uppercase font-light text-white opacity-[0.88] my-1 block">
+            EXPERIENCES
+          </span>
         </div>
-
-        {/* Bottom Marquee (Moving Right) */}
-        <div className="w-full overflow-hidden opacity-[0.07]">
-          <div className="flex w-max animate-marquee-right font-cormorant italic text-4xl md:text-[64px] uppercase tracking-[0.15em] text-[#a855f7]">
-            <span>LIGHT TOWER ILLUMINATION • INSPIRING EXPERIENCES • ARCHITECTURAL LIGHTING • </span>
-            <span>LIGHT TOWER ILLUMINATION • INSPIRING EXPERIENCES • ARCHITECTURAL LIGHTING • </span>
-          </div>
-        </div>
-
       </div>
 
       {/* ─── Main Content Wrapper ─── */}
@@ -231,29 +236,22 @@ export default function Preloader({ locale }: PreloaderProps) {
 
       </div>
 
-      {/* Opposing marquee transitions & styling */}
+      {/* Breathing animation keyframes */}
       <style jsx>{`
-        @keyframes marqueeLeft {
-          0% {
-            transform: translate3d(0, 0, 0);
+        @keyframes logoPulse {
+          0%, 100% {
+            transform: scale(0.96);
+            opacity: 0.65;
+            filter: drop-shadow(0 0 10px rgba(168, 85, 247, 0.15));
           }
-          100% {
-            transform: translate3d(-50%, 0, 0);
-          }
-        }
-        @keyframes marqueeRight {
-          0% {
-            transform: translate3d(-50%, 0, 0);
-          }
-          100% {
-            transform: translate3d(0, 0, 0);
+          50% {
+            transform: scale(1.02);
+            opacity: 1.0;
+            filter: drop-shadow(0 0 30px rgba(168, 85, 247, 0.45));
           }
         }
-        .animate-marquee-left {
-          animation: marqueeLeft 32s linear infinite;
-        }
-        .animate-marquee-right {
-          animation: marqueeRight 32s linear infinite;
+        .animate-logo-pulse {
+          animation: logoPulse 1.6s ease-in-out infinite;
         }
       `}</style>
     </div>
