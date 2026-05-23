@@ -154,19 +154,11 @@ export default function Preloader({ locale }: PreloaderProps) {
       };
     }
 
-    // Top card sliding out during shuffle
-    if (diff === 0 && isShuffling) {
-      return {
-        transform: "translate3d(120%, -15px, 0) rotate(15deg) scale(0.9)",
-        opacity: 0,
-        zIndex: 50,
-        transition: "transform 0.28s ease-in, opacity 0.25s ease-in",
-      };
-    }
+    // Check if the card has already been discarded to the side
+    const isDiscarded = index < cardIndex || percent === 100;
 
-    // At 100% load, spread cards stack into left and right columns to make center text 100% visible
-    if (percent === 100 && visible) {
-      const isEven = index % 2 === 0;
+    if (isDiscarded) {
+      // Return its designated left/right side position
       let tx = "0px";
       let ty = "0px";
       let rot = "0deg";
@@ -188,30 +180,31 @@ export default function Preloader({ locale }: PreloaderProps) {
       return {
         transform: `translate3d(${tx}, ${ty}, 0) rotate(${rot}) scale(${scale})`,
         opacity,
-        zIndex: 50 - diff,
-        transition: "transform 1.4s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.9s ease-out",
+        zIndex: 40 + index, // Give it a fixed layering so fanned cards stack nicely on the sides
+        transition: "transform 1.3s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.9s ease-out",
       };
     }
 
-    // Default stacking offsets for cards in the deck
+    // Active stacking offsets for cards still remaining in the centered deck
+    const centeredDiff = index - cardIndex;
     let transform = "translate3d(0, 0, 0) rotate(0deg) scale(1)";
     let opacity = 1;
+    let zIndex = 50 - centeredDiff;
 
-    if (diff === 0) {
-      // Active card on top
+    if (centeredDiff === 0) {
+      // Active card on top of the centered deck
       transform = "translate3d(0, 0, 0) rotate(-1.5deg) scale(1)";
       opacity = 1;
-    } else if (diff === 1) {
+    } else if (centeredDiff === 1) {
       transform = "translate3d(6px, 12px, 0) rotate(3deg) scale(0.96)";
       opacity = 0.9;
-    } else if (diff === 2) {
+    } else if (centeredDiff === 2) {
       transform = "translate3d(-8px, 20px, 0) rotate(-4deg) scale(0.92)";
       opacity = 0.8;
-    } else if (diff === 3) {
+    } else if (centeredDiff === 3) {
       transform = "translate3d(10px, 28px, 0) rotate(5deg) scale(0.88)";
       opacity = 0.6;
     } else {
-      // Completely hidden cards deep in the deck
       transform = "translate3d(0, 36px, 0) rotate(0deg) scale(0.84)";
       opacity = 0;
     }
@@ -219,7 +212,7 @@ export default function Preloader({ locale }: PreloaderProps) {
     return {
       transform,
       opacity,
-      zIndex: 50 - diff,
+      zIndex,
       transition: "transform 0.45s cubic-bezier(0.175, 0.885, 0.32, 1.275), opacity 0.4s ease-out",
     };
   };
