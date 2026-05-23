@@ -115,7 +115,7 @@ export const localizationContent: Record<'en' | 'ar', ContentData> = {
       logoText: "LIGHT TOWER"
     },
     hero: {
-      title: "ILLUMINATING FACADES.\nLANDMARKS. ROYAL EVENTS.",
+      title: "ILLUMINATING FACADES. LANDMARKS. ROYAL EVENTS.",
       subtitle: "Delivering Happiness, Charm & Satisfaction For Over 26 Years Across The GCC.",
       cta: "EXPLORE OUR SOLUTIONS"
     },
@@ -229,7 +229,7 @@ export const localizationContent: Record<'en' | 'ar', ContentData> = {
       logoText: "لايت تاور"
     },
     hero: {
-      title: "إضاءة الواجهات.\nالمعالم. المناسبات الملكية.",
+      title: "إضاءة الواجهات. المعالم. المناسبات الملكية.",
       subtitle: "نقدم السعادة والسحر والرضا لأكثر من 26 عاماً في جميع أنحاء الخليج.",
       cta: "اكتشف حلولنا الإبداعية"
     },
