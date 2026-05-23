@@ -167,16 +167,16 @@ export default function Preloader({ locale }: PreloaderProps) {
       <div className="absolute inset-0 flex flex-col justify-center gap-24 pointer-events-none select-none z-0">
         
         {/* Top Marquee (Moving Left) */}
-        <div className="w-full overflow-hidden opacity-[0.04]">
-          <div className="flex w-max animate-marquee-left font-cormorant italic text-4xl md:text-[64px] uppercase tracking-[0.15em] text-white">
+        <div className="w-full overflow-hidden opacity-[0.07]">
+          <div className="flex w-max animate-marquee-left font-cormorant italic text-4xl md:text-[64px] uppercase tracking-[0.15em] text-[#a855f7]">
             <span>LIGHT TOWER ILLUMINATION • INSPIRING EXPERIENCES • ARCHITECTURAL LIGHTING • </span>
             <span>LIGHT TOWER ILLUMINATION • INSPIRING EXPERIENCES • ARCHITECTURAL LIGHTING • </span>
           </div>
         </div>
 
         {/* Bottom Marquee (Moving Right) */}
-        <div className="w-full overflow-hidden opacity-[0.04]">
-          <div className="flex w-max animate-marquee-right font-cormorant italic text-4xl md:text-[64px] uppercase tracking-[0.15em] text-white">
+        <div className="w-full overflow-hidden opacity-[0.07]">
+          <div className="flex w-max animate-marquee-right font-cormorant italic text-4xl md:text-[64px] uppercase tracking-[0.15em] text-[#a855f7]">
             <span>LIGHT TOWER ILLUMINATION • INSPIRING EXPERIENCES • ARCHITECTURAL LIGHTING • </span>
             <span>LIGHT TOWER ILLUMINATION • INSPIRING EXPERIENCES • ARCHITECTURAL LIGHTING • </span>
           </div>
@@ -187,8 +187,8 @@ export default function Preloader({ locale }: PreloaderProps) {
       {/* ─── Main Content Wrapper ─── */}
       <div className="relative flex flex-col items-center justify-center z-10 gap-10 select-none">
         
-        {/* Card Deck Wrapper */}
-        <div className="relative w-[210px] h-[280px] md:w-[260px] md:h-[340px] flex items-center justify-center">
+        {/* Card Deck Wrapper - Updated to Widescreen Landscape to match Portfolio Aspect and show full work */}
+        <div className="relative w-[280px] h-[190px] md:w-[420px] md:h-[280px] flex items-center justify-center">
           {SHUFFLE_IMAGES.map((src, index) => (
             <div
               key={index}

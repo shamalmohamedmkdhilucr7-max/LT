@@ -58,7 +58,7 @@ export default function ServicesSection({ locale, servicesData }: ServicesProps)
               <Link
                 href={`/${locale}/services/${service.slug}`}
                 key={service.slug}
-                className="group relative aspect-[4/5] overflow-hidden rounded-2xl flex flex-col justify-end p-6 border border-[#a855f7]/10 hover:border-[#a855f7]/30 transition-all duration-700 bg-white/5 backdrop-blur-[2px] hover:scale-[1.02] hover:shadow-[0_25px_60px_-15px_rgba(168,85,247,0.15)] cursor-pointer"
+                className="group relative aspect-[4/3] overflow-hidden rounded-2xl flex flex-col justify-end p-6 border border-[#a855f7]/10 hover:border-[#a855f7]/30 transition-all duration-700 bg-white/5 backdrop-blur-[2px] hover:scale-[1.02] hover:shadow-[0_25px_60px_-15px_rgba(168,85,247,0.15)] cursor-pointer"
               >
                 {/* Dynamic Service Card Background Images with Smooth Cross-Fade */}
                 {images.map((img, imgIdx) => {
