@@ -15,19 +15,20 @@ const SHUFFLE_IMAGES = [
 ];
 
 export default function Preloader({ locale }: PreloaderProps) {
-  const [shouldRender, setShouldRender] = useState(() => {
-    if (typeof window !== "undefined") {
-      return !sessionStorage.getItem("hasLoadedLightTower");
-    }
-    return true;
-  });
+  const [shouldRender, setShouldRender] = useState(true);
   const [visible, setVisible] = useState(true);
   const [percent, setPercent] = useState(0);
   const [cardIndex, setCardIndex] = useState(0);
   const [isShuffling, setIsShuffling] = useState(false);
 
   useEffect(() => {
-    if (!shouldRender) return;
+    // Check if already loaded on client-side mount (after hydration complete)
+    const hasLoaded = sessionStorage.getItem("hasLoadedLightTower");
+    if (hasLoaded) {
+      setShouldRender(false);
+      setVisible(false);
+      return;
+    }
 
     // Fast preload essential scroll frames in background to ensure zero lag on landing
     const ESSENTIAL_FRAMES = 15;
@@ -83,7 +84,7 @@ export default function Preloader({ locale }: PreloaderProps) {
     return () => {
       clearInterval(shuffleInterval);
     };
-  }, [shouldRender]);
+  }, []);
 
   if (!shouldRender) return null;
 
@@ -157,12 +158,23 @@ export default function Preloader({ locale }: PreloaderProps) {
 
   return (
     <div
+      id="global-preloader"
       style={{
         transform: visible ? "translateY(0)" : "translateY(-100%)",
         pointerEvents: visible ? "auto" : "none",
       }}
       className="fixed inset-0 bg-black z-[10000] flex flex-col items-center justify-center transition-transform duration-[1350ms] ease-[cubic-bezier(0.85,0,0.15,1)] overflow-hidden"
     >
+      <script
+        dangerouslySetInnerHTML={{
+          __html: `
+            if (typeof window !== 'undefined' && sessionStorage.getItem('hasLoadedLightTower')) {
+              var el = document.getElementById('global-preloader');
+              if (el) el.style.display = 'none';
+            }
+          `,
+        }}
+      />
       {/* ─── Opposing Scrolling Text Banners (Rogue Studio Marquee) ─── */}
       <div className="absolute inset-0 flex flex-col justify-center gap-24 pointer-events-none select-none z-0">
         
