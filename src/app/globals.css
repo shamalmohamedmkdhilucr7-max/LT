@@ -193,3 +193,51 @@ html[dir="rtl"] .accent-border {
   background: rgba(168, 85, 247, 0.25);
   color: #4c1d95;
 }
+
+/* ── Performance: content-visibility for off-screen sections ──────────────── */
+#about,
+#services,
+#portfolio,
+#contact {
+  content-visibility: auto;
+  contain-intrinsic-size: 0 800px;
+}
+
+/* ── Accessibility: Respect prefers-reduced-motion ────────────────────────── */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+
+  .animate-logo-pulse {
+    animation: none !important;
+  }
+
+  .scroll-progress {
+    transition: none !important;
+  }
+}
+
+/* ── Print styles ─────────────────────────────────────────────────────────── */
+@media print {
+  .noise,
+  .scroll-progress,
+  nav,
+  button {
+    display: none !important;
+  }
+
+  body {
+    background: white !important;
+    color: black !important;
+  }
+
+  a {
+    text-decoration: underline;
+  }
+}

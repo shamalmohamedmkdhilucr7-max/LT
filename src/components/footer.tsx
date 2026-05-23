@@ -129,12 +129,21 @@ export default function Footer({ locale }: FooterProps) {
                   </a>
                 </div>
 
-                {/* HQ Address */}
+                {/* HQ Address — semantic <address> element for local SEO */}
                 <div className="flex flex-col gap-1">
                   <span className="text-[9px] font-bold text-[#c084fc] tracking-wider uppercase opacity-75">{labels.hqAddress}</span>
-                  <p className="leading-relaxed">
+                  <address className="not-italic leading-relaxed text-zinc-300 text-xs font-light">
                     {activeData.contact.location}
-                  </p>
+                  </address>
+                  <a
+                    href="https://maps.google.com/?q=23.7915,57.8188"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-[9px] text-[#a855f7] hover:text-[#c084fc] tracking-wider uppercase transition-colors duration-300 mt-1 inline-flex items-center gap-1"
+                    aria-label="View Light Tower Illumination on Google Maps"
+                  >
+                    📍 {isAr ? "عرض على خرائط جوجل" : "View on Google Maps"}
+                  </a>
                 </div>
               </div>
             </div>
@@ -169,9 +178,12 @@ export default function Footer({ locale }: FooterProps) {
           <div className="flex flex-col md:flex-row justify-between items-center gap-6 pt-8 text-center" dir={isAr ? "rtl" : "ltr"}>
             <div className="font-body text-[10px] text-zinc-400 tracking-[0.03em] flex flex-col md:flex-row items-center justify-between w-full gap-4">
               <p className="font-light text-left md:text-left">{activeData.footer.copy}</p>
-              <div className="flex items-center gap-2">
+              <div className="flex items-center gap-4">
                 <span className="font-light text-zinc-500 uppercase tracking-widest text-[9px]">
                   {activeData.footer.established}
+                </span>
+                <span className="font-light text-[#a855f7]/60 uppercase tracking-widest text-[9px]">
+                  {isAr ? "مسقط، عُمان · نخدم دول الخليج" : "Muscat, Oman · Serving GCC"}
                 </span>
               </div>
             </div>

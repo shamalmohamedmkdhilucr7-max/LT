@@ -7,7 +7,6 @@ interface PreloaderProps {
 }
 
 const SHUFFLE_IMAGES = [
-  "/images/Gallery%20and%20portfolio/image%20(65).png",
   "/images/Gallery%20and%20portfolio/image%20(1).png",
   "/images/Gallery%20and%20portfolio/image%20(2).png",
   "/images/Gallery%20and%20portfolio/image%20(3).png",
@@ -16,12 +15,24 @@ const SHUFFLE_IMAGES = [
   "/images/Gallery%20and%20portfolio/image%20(13).png",
   "/images/Gallery%20and%20portfolio/image%20(14).png",
   "/images/Gallery%20and%20portfolio/image%20(15).png",
+  "/images/Gallery%20and%20portfolio/image%20(16).png",
+  "/images/Gallery%20and%20portfolio/image%20(17).png",
   "/images/Gallery%20and%20portfolio/image%20(18).png",
   "/images/Gallery%20and%20portfolio/image%20(20).png",
+  "/images/Gallery%20and%20portfolio/image%20(21).png",
   "/images/Gallery%20and%20portfolio/image%20(27).png",
   "/images/Gallery%20and%20portfolio/image%20(28).png",
+  "/images/Gallery%20and%20portfolio/image%20(29).png",
+  "/images/Gallery%20and%20portfolio/image%20(30).png",
+  "/images/Gallery%20and%20portfolio/image%20(41).png",
   "/images/Gallery%20and%20portfolio/image%20(42).png",
   "/images/Gallery%20and%20portfolio/image%20(46).png",
+  "/images/Gallery%20and%20portfolio/image%20(60).png",
+  "/images/Gallery%20and%20portfolio/image%20(61).png",
+  "/images/Gallery%20and%20portfolio/image%20(62).png",
+  "/images/Gallery%20and%20portfolio/image%20(63).png",
+  "/images/Gallery%20and%20portfolio/image%20(64).png",
+  "/images/Gallery%20and%20portfolio/image%20(65).png",
 ];
 
 const COLLAGE_IMAGES = [
@@ -48,7 +59,13 @@ const COLLAGE_IMAGES = [
   "/images/Gallery%20and%20portfolio/image%20(60).png",
   "/images/Gallery%20and%20portfolio/image%20(61).png",
   "/images/Gallery%20and%20portfolio/image%20(62).png",
+  "/images/Gallery%20and%20portfolio/image%20(63).png",
+  "/images/Gallery%20and%20portfolio/image%20(64).png",
   "/images/Gallery%20and%20portfolio/image%20(65).png",
+  "/images/Gallery%20and%20portfolio/image%20(4).png",
+  "/images/Gallery%20and%20portfolio/image%20(8).png",
+  "/images/Gallery%20and%20portfolio/image%20(22).png",
+  "/images/Gallery%20and%20portfolio/image%20(24).png",
 ];
 
 export default function Preloader({ locale }: PreloaderProps) {
@@ -268,7 +285,7 @@ export default function Preloader({ locale }: PreloaderProps) {
       </div>
 
       {/* ─── Final State Big Typography (Rogue Studio Style) ─── */}
-      {percent === 100 && (
+      {percent === 100 && collageState === "none" && (
         <div className="absolute inset-0 flex flex-col items-center justify-center pointer-events-none select-none z-20 animate-fade-in-up">
           <div className="text-center flex flex-col items-center justify-center leading-none">
             <span className="font-cormorant text-2xl md:text-5xl lg:text-6xl font-light tracking-[0.25em] text-white uppercase">
@@ -294,7 +311,7 @@ export default function Preloader({ locale }: PreloaderProps) {
               <div
                 key={index}
                 style={getCardStyle(index)}
-                className="absolute w-full h-full rounded-2xl md:rounded-3xl overflow-hidden border border-[#a855f7]/30 shadow-[0_20px_50px_rgba(168,85,247,0.22)] bg-[#030308] select-none"
+                className="absolute w-full h-full rounded-2xl md:rounded-3xl overflow-hidden bg-[#030308] select-none"
               >
                 <img
                   src={src}

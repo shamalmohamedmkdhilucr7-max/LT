@@ -1,38 +1,64 @@
 import { MetadataRoute } from "next";
 import { servicesData } from "../constants/content";
 
+const BASE_URL = "https://lighttoweroman.com";
+
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = "https://lighttoweroman.com";
-  
-  // Core landing pages in EN and AR
+  const now = new Date();
+
+  // ── Core landing pages (EN & AR) ──────────────────────────────────────────
   const routes: MetadataRoute.Sitemap = [
     {
-      url: `${baseUrl}/en`,
-      lastModified: new Date(),
+      url: `${BASE_URL}/en`,
+      lastModified: now,
       changeFrequency: "weekly",
       priority: 1.0,
+      alternates: {
+        languages: {
+          en: `${BASE_URL}/en`,
+          ar: `${BASE_URL}/ar`,
+        },
+      },
     },
     {
-      url: `${baseUrl}/ar`,
-      lastModified: new Date(),
+      url: `${BASE_URL}/ar`,
+      lastModified: now,
       changeFrequency: "weekly",
       priority: 1.0,
+      alternates: {
+        languages: {
+          en: `${BASE_URL}/en`,
+          ar: `${BASE_URL}/ar`,
+        },
+      },
     },
   ];
 
-  // Dynamic regional service routes in EN and AR
+  // ── Dynamic service pages (EN & AR) ───────────────────────────────────────
   servicesData.forEach((service) => {
     routes.push({
-      url: `${baseUrl}/en/services/${service.slug}`,
-      lastModified: new Date(),
+      url: `${BASE_URL}/en/services/${service.slug}`,
+      lastModified: now,
       changeFrequency: "monthly",
       priority: 0.8,
+      alternates: {
+        languages: {
+          en: `${BASE_URL}/en/services/${service.slug}`,
+          ar: `${BASE_URL}/ar/services/${service.slug}`,
+        },
+      },
     });
     routes.push({
-      url: `${baseUrl}/ar/services/${service.slug}`,
-      lastModified: new Date(),
+      url: `${BASE_URL}/ar/services/${service.slug}`,
+      lastModified: now,
       changeFrequency: "monthly",
       priority: 0.8,
+      alternates: {
+        languages: {
+          en: `${BASE_URL}/en/services/${service.slug}`,
+          ar: `${BASE_URL}/ar/services/${service.slug}`,
+        },
+      },
     });
   });
 

@@ -48,7 +48,7 @@ const FOUNDERS = [
     role: "MANAGING PARTNER",
     roleAr: "شريك إداري",
     initials: "SH",
-    image: "/images/Sheefer h.png",
+    image: "/images/Sheefer%20h.png",
   },
 ];
 

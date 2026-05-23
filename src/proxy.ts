@@ -1,8 +1,8 @@
-import { NextResponse } from 'next/server';
-import type { NextRequest } from 'next/server';
+import { NextResponse } from "next/server";
+import type { NextRequest } from "next/server";
 
-const locales = ['en', 'ar'];
-const defaultLocale = 'en';
+const locales = ["en", "ar"];
+const defaultLocale = "en";
 
 export function proxy(request: NextRequest) {
   const { pathname } = request.nextUrl;
@@ -14,13 +14,16 @@ export function proxy(request: NextRequest) {
 
   if (pathnameHasLocale) return;
 
-  // Skip static assets, internal next directories, and images
+  // Skip static assets, next internal files, and API routes
   if (
-    pathname.startsWith('/_next') ||
-    pathname.startsWith('/images') ||
-    pathname.includes('.') ||
-    pathname.startsWith('/api') ||
-    pathname === '/favicon.ico'
+    pathname.startsWith("/_next") ||
+    pathname.startsWith("/images") ||
+    pathname.includes(".") ||
+    pathname.startsWith("/api") ||
+    pathname === "/favicon.ico" ||
+    pathname === "/robots.txt" ||
+    pathname === "/sitemap.xml" ||
+    pathname === "/manifest.webmanifest"
   ) {
     return;
   }
@@ -33,6 +36,6 @@ export function proxy(request: NextRequest) {
 export const config = {
   matcher: [
     // Match all paths except internal next, api, favicon
-    '/((?!_next|api|images|favicon.ico|assets).*)',
+    "/((?!_next|api|images|favicon.ico|assets).*)",
   ],
 };

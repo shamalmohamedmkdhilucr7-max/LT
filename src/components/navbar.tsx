@@ -53,6 +53,7 @@ export default function Navbar({ locale, navData }: NavbarProps) {
       {/* Logo — pinned top-left, white filter, hero-only on homepage */}
       <Link
         href={`/${locale}`}
+        aria-label="Light Tower Illumination — Return to homepage"
         className="fixed top-6 left-6 md:top-8 md:left-10 lg:left-14 z-[1001] transition-all duration-700 ease-[cubic-bezier(0.16,1,0.3,1)]"
         style={{
           opacity: visible ? 1 : 0,
@@ -65,6 +66,8 @@ export default function Navbar({ locale, navData }: NavbarProps) {
 
       {/* Desktop Navigation — pinned top-right, vertical, hero-only on homepage */}
       <nav
+        role="navigation"
+        aria-label="Main navigation"
         className="fixed top-6 right-6 md:top-8 md:right-10 lg:right-14 z-[1001] hidden md:flex flex-col items-end gap-4 select-none transition-all duration-700 ease-[cubic-bezier(0.16,1,0.3,1)]"
         style={{
           opacity: visible ? 1 : 0,

@@ -130,26 +130,26 @@ export default function HeroSequence({ locale, heroData }: HeroSequenceProps) {
 
   return (
     <section ref={containerRef} id="hero-sequence" className="relative h-[550vh] z-[2]">
-      <div className="hero-sticky sticky top-0 h-screen overflow-hidden flex items-end justify-center pb-12 md:pb-20 lg:pb-[95px]">
+      <div className="hero-sticky sticky top-0 h-screen overflow-hidden">
         <div className="hero-canvas absolute inset-0 z-0">
           <canvas ref={canvasRef} className="w-full h-full object-cover" />
         </div>
-        <div className="hero-overlay absolute inset-0 z-[1] bg-gradient-to-b from-[#030308]/45 via-[#030308]/10 to-[#030308]/98" />
+        <div className="hero-overlay absolute inset-0 z-[1]">
+          <div className="absolute inset-0 bg-gradient-to-b from-[#030308]/45 via-transparent to-transparent" />
+          <div className="absolute bottom-0 left-0 right-0 h-[55%] bg-gradient-to-b from-transparent to-[#030308]/70" />
+        </div>
 
-        {/* Hero Content */}
+        {/* Hero Content — absolutely positioned so it's never clipped */}
         <div
           ref={textRef}
-          className="container hero-content relative z-10 w-full max-w-[1050px] text-center opacity-0 translate-y-[50px] transition-all duration-[1200ms] cubic-bezier(0.16,1,0.3,1) pointer-events-none pb-2"
+          className="absolute bottom-[12%] left-0 right-0 z-10 w-full text-center opacity-0 translate-y-[50px] transition-all duration-[1200ms] cubic-bezier(0.16,1,0.3,1) pointer-events-none px-4"
         >
           <h1 className="font-display text-white text-2xl md:text-4xl lg:text-[46px] font-light tracking-[0.1em] uppercase leading-[1.3] text-shadow-[0_10px_40px_rgba(0,0,0,0.9)] whitespace-pre-line">
             {heroData.title}
           </h1>
-          <p className="font-body text-[#e2e8f0] text-xs md:text-sm lg:text-base font-light tracking-[0.04em] mt-2.5 mb-5 md:mb-6 text-shadow-[0_4px_25px_rgba(0,0,0,0.85)]">
-            {heroData.subtitle}
-          </p>
           <a
             href="#services"
-            className="cursor-pointer font-body text-[10px] font-medium text-white uppercase tracking-[0.22em] px-8 py-3.5 border-y border-[#a855f7]/40 bg-[#030308]/40 backdrop-blur-md hover:text-white hover:border-[#a855f7] hover:bg-[#a855f7]/10 hover:tracking-[0.28em] hover:shadow-[0_0_30px_rgba(168,85,247,0.3)] transition-all duration-500 inline-block pointer-events-auto"
+            className="cursor-pointer font-body text-xs md:text-sm font-semibold text-white uppercase tracking-[0.22em] px-10 py-4 mt-6 md:mt-7 border border-[#a855f7] bg-[#a855f7]/30 backdrop-blur-sm shadow-[0_0_20px_rgba(168,85,247,0.3)] hover:bg-[#a855f7]/50 hover:tracking-[0.28em] hover:shadow-[0_0_35px_rgba(168,85,247,0.5)] transition-all duration-500 inline-block pointer-events-auto"
           >
             {heroData.cta}
           </a>
