@@ -245,15 +245,15 @@ export default function Preloader({ locale }: PreloaderProps) {
 
       {/* ─── Final State Big Typography (Rogue Studio Style) ─── */}
       {percent === 100 && (
-        <div className="absolute inset-0 flex flex-col items-center justify-center pointer-events-none select-none z-0 animate-fade-in-up">
+        <div className="absolute top-[6%] md:top-[8%] lg:top-[10%] left-0 right-0 flex flex-col items-center justify-center pointer-events-none select-none z-0 animate-fade-in-up">
           <div className="text-center flex flex-col items-center justify-center leading-none">
-            <span className="font-cormorant text-2xl md:text-5xl lg:text-6xl font-light tracking-[0.2em] text-white uppercase">
+            <span className="font-cormorant text-xl md:text-3xl lg:text-4xl font-light tracking-[0.25em] text-white uppercase">
               {isAr ? "إنارة المساحات •" : "CREATING SPACES *"}
             </span>
-            <span className="font-sans text-[12vw] md:text-[9vw] font-black tracking-tighter text-[#d9c3b0] uppercase leading-none my-3 font-stretch-condensed">
+            <span className="font-sans text-[7.5vw] md:text-[5.5vw] lg:text-[4.5vw] font-black tracking-tighter text-[#a855f7] drop-shadow-[0_0_20px_rgba(168,85,247,0.55)] uppercase leading-none my-2 md:my-3 font-stretch-condensed">
               {isAr ? "مبهرة" : "IMPOSSIBLE"}
             </span>
-            <span className="font-cormorant text-2xl md:text-5xl lg:text-6xl font-light tracking-[0.2em] text-white uppercase">
+            <span className="font-cormorant text-xl md:text-3xl lg:text-4xl font-light tracking-[0.25em] text-white uppercase">
               {isAr ? "للنسيان" : "TO IGNORE"}
             </span>
           </div>
