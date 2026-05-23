@@ -1,6 +1,7 @@
 import React from 'react';
 import { DM_Sans, Cormorant_Garamond, Cairo } from 'next/font/google';
 import '../globals.css';
+import CookieConsent from '../../components/cookie-consent';
 
 const dmSans = DM_Sans({
   subsets: ['latin'],
@@ -49,6 +50,7 @@ export default async function LocaleLayout({
           <rect width="100%" height="100%" filter="url(#noiseFilter)" />
         </svg>
         {children}
+        <CookieConsent locale={locale as "en" | "ar"} />
       </body>
     </html>
   );
