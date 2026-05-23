@@ -9,9 +9,19 @@ interface PreloaderProps {
 const SHUFFLE_IMAGES = [
   "/images/Gallery%20and%20portfolio/image%20(65).png",
   "/images/Gallery%20and%20portfolio/image%20(1).png",
+  "/images/Gallery%20and%20portfolio/image%20(2).png",
+  "/images/Gallery%20and%20portfolio/image%20(3).png",
+  "/images/Gallery%20and%20portfolio/image%20(9).png",
+  "/images/Gallery%20and%20portfolio/image%20(10).png",
   "/images/Gallery%20and%20portfolio/image%20(13).png",
+  "/images/Gallery%20and%20portfolio/image%20(14).png",
+  "/images/Gallery%20and%20portfolio/image%20(15).png",
+  "/images/Gallery%20and%20portfolio/image%20(18).png",
+  "/images/Gallery%20and%20portfolio/image%20(20).png",
   "/images/Gallery%20and%20portfolio/image%20(27).png",
+  "/images/Gallery%20and%20portfolio/image%20(28).png",
   "/images/Gallery%20and%20portfolio/image%20(42).png",
+  "/images/Gallery%20and%20portfolio/image%20(46).png",
 ];
 
 const COLLAGE_IMAGES = [
@@ -154,34 +164,26 @@ export default function Preloader({ locale }: PreloaderProps) {
       };
     }
 
-    // Check if the card has already been discarded to the side
-    const isDiscarded = index < cardIndex || percent === 100;
-
-    if (isDiscarded) {
-      // Return its designated left/right side position
-      let tx = "0px";
-      let ty = "0px";
-      let rot = "0deg";
-      let scale = 1;
-      let opacity = 1;
-
-      if (index === 0) {
-        tx = "calc(1.1 * var(--card-spread-x, 24vw))"; ty = "-15px"; rot = "5deg"; scale = 0.88; opacity = 1;
-      } else if (index === 1) {
-        tx = "calc(-1.1 * var(--card-spread-x, 24vw))"; ty = "20px"; rot = "-6deg"; scale = 0.88; opacity = 1;
-      } else if (index === 2) {
-        tx = "calc(1.35 * var(--card-spread-x, 24vw))"; ty = "35px"; rot = "-3deg"; scale = 0.8; opacity = 0.85;
-      } else if (index === 3) {
-        tx = "calc(-1.35 * var(--card-spread-x, 24vw))"; ty = "-25px"; rot = "8deg"; scale = 0.8; opacity = 0.85;
-      } else if (index === 4) {
-        tx = "calc(1.6 * var(--card-spread-x, 24vw))"; ty = "-5px"; rot = "2deg"; scale = 0.72; opacity = 0.7;
-      }
-
+    // At 100% load, the cards stack slides up slightly and fades out completely in the center
+    if (percent === 100) {
       return {
-        transform: `translate3d(${tx}, ${ty}, 0) rotate(${rot}) scale(${scale})`,
-        opacity,
-        zIndex: 40 + index, // Give it a fixed layering so fanned cards stack nicely on the sides
-        transition: "transform 1.3s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.9s ease-out",
+        transform: "translate3d(0, -35px, 0) scale(0.92)",
+        opacity: 0,
+        zIndex: 10,
+        transition: "transform 0.8s ease-in-out, opacity 0.6s ease-in-out",
+      };
+    }
+
+    // Discarded cards slide out and fade away completely (alternating left/right is extremely beautiful and dynamic)
+    const isDiscarded = index < cardIndex;
+    if (isDiscarded) {
+      const isEven = index % 2 === 0;
+      const tx = isEven ? "120%" : "-120%";
+      return {
+        transform: `translate3d(${tx}, -15px, 0) rotate(${isEven ? '12deg' : '-12deg'}) scale(0.9)`,
+        opacity: 0,
+        zIndex: 50,
+        transition: "transform 0.5s ease-in, opacity 0.4s ease-in",
       };
     }
 
