@@ -48,7 +48,7 @@ const FOUNDERS = [
     role: "MANAGING PARTNER",
     roleAr: "شريك إداري",
     initials: "SH",
-    image: "/images/SHEEFER.%20H.%20SAIT.png",
+    image: "/images/Sheefer h.png",
   },
 ];
 
@@ -142,7 +142,7 @@ export default function AboutSection({ locale, aboutData }: AboutProps) {
         </div>
 
         {/* BOTTOM PORTION: Simplified Leadership — Photo + Name + Role Only */}
-        <div className="pt-12 border-t border-[#a855f7]/10">
+        <div id="leadership" className="pt-12 border-t border-[#a855f7]/10">
           <div className="max-w-[700px] mb-12">
             <span className="font-body text-[10px] md:text-xs font-semibold tracking-[0.25em] text-[#a855f7] uppercase mb-3 block eyebrow">
               EXECUTIVE LEADERSHIP | القيادة

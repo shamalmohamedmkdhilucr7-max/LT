@@ -110,7 +110,7 @@ export const localizationContent: Record<'en' | 'ar', ContentData> = {
     nav: {
       about: "About",
       services: "Services",
-      founders: "Founders",
+      founders: "Leadership",
       cta: "Get a Quote",
       logoText: "LIGHT TOWER"
     },
@@ -157,7 +157,7 @@ export const localizationContent: Record<'en' | 'ar', ContentData> = {
       ]
     },
     founders: {
-      eyebrow: "FOUNDERS",
+      eyebrow: "LEADERSHIP",
       title1: "The visionaries",
       titleAccent: "behind",
       title2: "our success.",
@@ -174,7 +174,7 @@ export const localizationContent: Record<'en' | 'ar', ContentData> = {
           role: "CO-FOUNDER & MANAGING DIRECTOR",
           bio: "Pioneering engineering excellence, project execution, and technical innovation at Light Tower. With an unyielding focus on quality and material durability, he manages complex, large-scale structural illumination projects, ensuring flawless execution from blueprint to breathtaking switch-on.",
           arabicBio: "شيفير ح. سايت | المؤسس المشارك والمدير التنفيذي",
-          image: "/images/sheefer.webp"
+          image: "/images/Sheefer h.png"
         }
       ]
     },
@@ -185,7 +185,7 @@ export const localizationContent: Record<'en' | 'ar', ContentData> = {
       title2: "YOUR NEXT PROJECT.",
       desc: "Have a vision? Let us bring it to life. Our team of expert engineers and designers are ready to transform your architectural dreams into luminous reality.",
       arabicText: "لديك رؤية؟ دعنا نحولها إلى واقع مضيء.",
-      phone: "+968 98184233, +968 90153350",
+      phone: "+968 98184233",
       email: "ltillumination06@gmail.com",
       location: "Po. Box. No.125, 316 Postal Code, Mussannah, Al Maabela, Sultanate of Oman",
       cr: "CR No: 1281868",
@@ -224,7 +224,7 @@ export const localizationContent: Record<'en' | 'ar', ContentData> = {
     nav: {
       about: "من نحن",
       services: "خدماتنا",
-      founders: "المؤسسون",
+      founders: "القيادة",
       cta: "احصل على عرض سعر",
       logoText: "لايت تاور"
     },
@@ -271,7 +271,7 @@ export const localizationContent: Record<'en' | 'ar', ContentData> = {
       ]
     },
     founders: {
-      eyebrow: "المؤسسون",
+      eyebrow: "القيادة",
       title1: "الرؤاة المبدعون",
       titleAccent: "خلف",
       title2: "مسيرة نجاحنا.",
@@ -288,7 +288,7 @@ export const localizationContent: Record<'en' | 'ar', ContentData> = {
           role: "المؤسس المشارك والمدير التنفيذي",
           bio: "ريادة التميز الهندسي، وإدارة المشاريع، والابتكار التقني في لايت تاور. مع تركيز لا يلين على الجودة ومتانة المواد، يدير مشاريع الإضاءة الإنشائية المعقدة واسعة النطاق، مما يضمن التنفيذ المثالي من الفكرة الأولية إلى التشغيل المبهر.",
           arabicBio: "شيفير ح. سايت | المؤسس المشارك والمدير التنفيذي",
-          image: "/images/sheefer.webp"
+          image: "/images/Sheefer h.png"
         }
       ]
     },
@@ -299,7 +299,7 @@ export const localizationContent: Record<'en' | 'ar', ContentData> = {
       title2: "مشروعك القادم.",
       desc: "هل لديك رؤية؟ دعنا نحولها إلى واقع مضيء. طاقم المهندسين والمصممين الخبراء لدينا مستعدون لتحويل أحلامك المعمارية إلى روائع مضيئة نابضة بالحياة.",
       arabicText: "لديك رؤية؟ دعنا نحولها إلى واقع مضيء.",
-      phone: "+968 98184233, +968 90153350",
+      phone: "+968 98184233",
       email: "ltillumination06@gmail.com",
       location: "ص.ب 125، الرمز البريدي 316، المصنعة، المعبيلة، سلطنة عُمان",
       cr: "رقم السجل التجاري: 1281868",

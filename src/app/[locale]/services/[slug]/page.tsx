@@ -101,7 +101,7 @@ export default async function ServiceDetailPage({ params }: ServicePageProps) {
     "provider": {
       "@type": "LocalBusiness",
       "name": "Light Tower Illumination",
-      "telephone": "+968 98184233, +968 90153350",
+      "telephone": "+968 98184233",
       "email": "ltillumination06@gmail.com",
       "address": {
         "@type": "PostalAddress",

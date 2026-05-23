@@ -45,7 +45,7 @@ export default function Footer({ locale }: FooterProps) {
     hqAddress: isAr ? "المقر الرئيسي" : "HQ ADDRESS",
     aboutUs: isAr ? "من نحن" : "About Us",
     services: isAr ? "خدماتنا" : "Our Services",
-    founders: isAr ? "المؤسسون" : "The Founders",
+    founders: isAr ? "القيادة" : "Leadership",
     contactUs: isAr ? "اتصل بنا" : "Contact Us",
   };
 
@@ -95,7 +95,7 @@ export default function Footer({ locale }: FooterProps) {
                   </Link>
                 </li>
                 <li>
-                  <Link href={`/${locale}#founders`} className="hover:text-[#c084fc] transition-colors duration-300 flex items-center gap-1">
+                  <Link href={`/${locale}#leadership`} className="hover:text-[#c084fc] transition-colors duration-300 flex items-center gap-1">
                     <span>{isAr ? "←" : "➔"}</span> {labels.founders}
                   </Link>
                 </li>
@@ -118,9 +118,6 @@ export default function Footer({ locale }: FooterProps) {
                   <span className="text-[9px] font-bold text-[#c084fc] tracking-wider uppercase opacity-75">{labels.telephones}</span>
                   <a href="tel:+96898184233" className="hover:text-[#c084fc] transition-colors tracking-wide block">
                     +968 9818 4233
-                  </a>
-                  <a href="tel:+96890153350" className="hover:text-[#c084fc] transition-colors tracking-wide block mt-0.5">
-                    +968 9015 3350
                   </a>
                 </div>
 

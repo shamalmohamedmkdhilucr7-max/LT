@@ -93,7 +93,7 @@ export default async function HomePage({ params }: PageProps) {
     "image": "https://lighttoweroman.com/images/about-building.webp",
     "@id": "https://lighttoweroman.com",
     "url": "https://lighttoweroman.com",
-    "telephone": ["+968 98184233", "+968 90153350"],
+    "telephone": "+968 98184233",
     "email": "ltillumination06@gmail.com",
     "priceRange": "$$$",
     "address": {
@@ -122,8 +122,7 @@ export default async function HomePage({ params }: PageProps) {
       "closes": "18:00"
     },
     "sameAs": [
-      "https://wa.me/96898184233",
-      "https://wa.me/96890153350"
+      "https://wa.me/96898184233"
     ]
   };
 
