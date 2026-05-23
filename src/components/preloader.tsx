@@ -14,12 +14,40 @@ const SHUFFLE_IMAGES = [
   "/images/Gallery%20and%20portfolio/image%20(43).png",
 ];
 
+const COLLAGE_IMAGES = [
+  "/images/Gallery%20and%20portfolio/image%20(1).png",
+  "/images/Gallery%20and%20portfolio/image%20(3).png",
+  "/images/Gallery%20and%20portfolio/image%20(5).png",
+  "/images/Gallery%20and%20portfolio/image%20(8).png",
+  "/images/Gallery%20and%20portfolio/image%20(10).png",
+  "/images/Gallery%20and%20portfolio/image%20(12).png",
+  "/images/Gallery%20and%20portfolio/image%20(14).png",
+  "/images/Gallery%20and%20portfolio/image%20(15).png",
+  "/images/Gallery%20and%20portfolio/image%20(18).png",
+  "/images/Gallery%20and%20portfolio/image%20(20).png",
+  "/images/Gallery%20and%20portfolio/image%20(22).png",
+  "/images/Gallery%20and%20portfolio/image%20(25).png",
+  "/images/Gallery%20and%20portfolio/image%20(27).png",
+  "/images/Gallery%20and%20portfolio/image%20(30).png",
+  "/images/Gallery%20and%20portfolio/image%20(33).png",
+  "/images/Gallery%20and%20portfolio/image%20(35).png",
+  "/images/Gallery%20and%20portfolio/image%20(38).png",
+  "/images/Gallery%20and%20portfolio/image%20(40).png",
+  "/images/Gallery%20and%20portfolio/image%20(43).png",
+  "/images/Gallery%20and%20portfolio/image%20(45).png",
+  "/images/Gallery%20and%20portfolio/image%20(48).png",
+  "/images/Gallery%20and%20portfolio/image%20(50).png",
+  "/images/Gallery%20and%20portfolio/image%20(55).png",
+  "/images/Gallery%20and%20portfolio/image%20(59).png",
+];
+
 export default function Preloader({ locale }: PreloaderProps) {
   const [shouldRender, setShouldRender] = useState(true);
   const [visible, setVisible] = useState(true);
   const [percent, setPercent] = useState(0);
   const [cardIndex, setCardIndex] = useState(0);
   const [isShuffling, setIsShuffling] = useState(false);
+  const [collageState, setCollageState] = useState<"none" | "populating" | "complete">("none");
 
   useEffect(() => {
     // Check if already loaded on client-side mount (after hydration complete)
@@ -36,6 +64,16 @@ export default function Preloader({ locale }: PreloaderProps) {
       const img = new window.Image();
       img.src = `/images/scroll-animation/frame-${String(i).padStart(3, "0")}.webp`;
     }
+
+    // Active Card Shuffle Interval (shuffles every 650ms)
+    const shuffleInterval = setInterval(() => {
+      setIsShuffling(true);
+      // Wait for the slide-out phase to complete before changing the top card index
+      setTimeout(() => {
+        setCardIndex((prev) => (prev + 1) % SHUFFLE_IMAGES.length);
+        setIsShuffling(false);
+      }, 250); // slide-out transition time
+    }, 650);
 
     // Dynamic numeric preloader counter syncing to 100%
     let startTimestamp: number | null = null;
@@ -56,22 +94,23 @@ export default function Preloader({ locale }: PreloaderProps) {
         requestAnimationFrame(step);
       } else {
         setPercent(100);
-        // Short cushion hold at 100% to lock final frame
-        setTimeout(() => dismiss(), 250);
+        // Stop shuffling immediately so the active card stays static in the final state
+        clearInterval(shuffleInterval);
+        
+        // 1. Hold the luxurious final state (stacked text + crown doodle) for 3.2 seconds
+        setTimeout(() => {
+          // 2. Transition into the beautiful full-screen collage state
+          setCollageState("populating");
+          
+          // 3. Keep the collage fully populated for 2.5 seconds, then dismiss
+          setTimeout(() => {
+            dismiss();
+          }, 2500);
+        }, 3200);
       }
     };
 
     requestAnimationFrame(step);
-
-    // Active Card Shuffle Interval (shuffles every 650ms)
-    const shuffleInterval = setInterval(() => {
-      setIsShuffling(true);
-      // Wait for the slide-out phase to complete before changing the top card index
-      setTimeout(() => {
-        setCardIndex((prev) => (prev + 1) % SHUFFLE_IMAGES.length);
-        setIsShuffling(false);
-      }, 250); // slide-out transition time
-    }, 650);
 
     const dismiss = () => {
       clearInterval(shuffleInterval);
@@ -309,6 +348,38 @@ export default function Preloader({ locale }: PreloaderProps) {
 
       </div>
 
+      {/* ─── Full-Screen Image Collage State (Fades in over final state before transition) ─── */}
+      {collageState !== "none" && (
+        <div
+          style={{
+            opacity: visible ? 1 : 0,
+            transform: visible ? "translateY(0)" : "translateY(-100%)",
+            transition: "transform 1.35s cubic-bezier(0.85, 0, 0.15, 1), opacity 0.8s ease-out",
+          }}
+          className="absolute inset-0 bg-black z-50 flex items-center justify-center p-2 md:p-3 overflow-hidden select-none pointer-events-none"
+        >
+          <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-6 w-full h-full gap-2 overflow-hidden">
+            {COLLAGE_IMAGES.map((src, index) => (
+              <div
+                key={index}
+                style={{
+                  animationDelay: `${index * 40}ms`,
+                }}
+                className="animate-collage-cell overflow-hidden rounded-lg md:rounded-2xl border border-[#a855f7]/10 bg-[#030308] relative w-full h-full"
+              >
+                <img
+                  src={src}
+                  alt="Light Tower Masterpiece Collage"
+                  className="w-full h-full object-cover filter brightness-[0.88] saturate-[1.05]"
+                  draggable={false}
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/35 via-transparent to-transparent pointer-events-none z-10" />
+              </div>
+            ))}
+          </div>
+        </div>
+      )}
+
       {/* Opposing marquee transitions, fadeInUp typography & doodle keyframes */}
       <style jsx>{`
         @keyframes marqueeLeft {
@@ -338,6 +409,22 @@ export default function Preloader({ locale }: PreloaderProps) {
         }
         .animate-doodle-bounce {
           animation: doodleBounce 1.8s ease-in-out infinite;
+        }
+        @keyframes collageFadeIn {
+          from {
+            opacity: 0;
+            transform: scale(1.1) translate3d(0, 12px, 0);
+            filter: brightness(0.35) saturate(0.7);
+          }
+          to {
+            opacity: 1;
+            transform: scale(1) translate3d(0, 0, 0);
+            filter: brightness(0.95) saturate(1);
+          }
+        }
+        .animate-collage-cell {
+          opacity: 0;
+          animation: collageFadeIn 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
         }
       `}</style>
       
