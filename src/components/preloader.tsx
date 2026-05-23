@@ -8,37 +8,37 @@ interface PreloaderProps {
 
 const SHUFFLE_IMAGES = [
   "/images/Gallery%20and%20portfolio/image%20(65).png",
-  "/images/Gallery%20and%20portfolio/image%20(59).png",
-  "/images/Gallery%20and%20portfolio/image%20(22).png",
   "/images/Gallery%20and%20portfolio/image%20(1).png",
-  "/images/Gallery%20and%20portfolio/image%20(43).png",
+  "/images/Gallery%20and%20portfolio/image%20(13).png",
+  "/images/Gallery%20and%20portfolio/image%20(27).png",
+  "/images/Gallery%20and%20portfolio/image%20(42).png",
 ];
 
 const COLLAGE_IMAGES = [
   "/images/Gallery%20and%20portfolio/image%20(1).png",
+  "/images/Gallery%20and%20portfolio/image%20(2).png",
   "/images/Gallery%20and%20portfolio/image%20(3).png",
-  "/images/Gallery%20and%20portfolio/image%20(5).png",
-  "/images/Gallery%20and%20portfolio/image%20(8).png",
+  "/images/Gallery%20and%20portfolio/image%20(9).png",
   "/images/Gallery%20and%20portfolio/image%20(10).png",
-  "/images/Gallery%20and%20portfolio/image%20(12).png",
+  "/images/Gallery%20and%20portfolio/image%20(13).png",
   "/images/Gallery%20and%20portfolio/image%20(14).png",
   "/images/Gallery%20and%20portfolio/image%20(15).png",
+  "/images/Gallery%20and%20portfolio/image%20(16).png",
+  "/images/Gallery%20and%20portfolio/image%20(17).png",
   "/images/Gallery%20and%20portfolio/image%20(18).png",
   "/images/Gallery%20and%20portfolio/image%20(20).png",
-  "/images/Gallery%20and%20portfolio/image%20(22).png",
-  "/images/Gallery%20and%20portfolio/image%20(25).png",
+  "/images/Gallery%20and%20portfolio/image%20(21).png",
   "/images/Gallery%20and%20portfolio/image%20(27).png",
+  "/images/Gallery%20and%20portfolio/image%20(28).png",
+  "/images/Gallery%20and%20portfolio/image%20(29).png",
   "/images/Gallery%20and%20portfolio/image%20(30).png",
-  "/images/Gallery%20and%20portfolio/image%20(33).png",
-  "/images/Gallery%20and%20portfolio/image%20(35).png",
-  "/images/Gallery%20and%20portfolio/image%20(38).png",
-  "/images/Gallery%20and%20portfolio/image%20(40).png",
-  "/images/Gallery%20and%20portfolio/image%20(43).png",
-  "/images/Gallery%20and%20portfolio/image%20(45).png",
-  "/images/Gallery%20and%20portfolio/image%20(48).png",
-  "/images/Gallery%20and%20portfolio/image%20(50).png",
-  "/images/Gallery%20and%20portfolio/image%20(55).png",
-  "/images/Gallery%20and%20portfolio/image%20(59).png",
+  "/images/Gallery%20and%20portfolio/image%20(41).png",
+  "/images/Gallery%20and%20portfolio/image%20(42).png",
+  "/images/Gallery%20and%20portfolio/image%20(46).png",
+  "/images/Gallery%20and%20portfolio/image%20(60).png",
+  "/images/Gallery%20and%20portfolio/image%20(61).png",
+  "/images/Gallery%20and%20portfolio/image%20(62).png",
+  "/images/Gallery%20and%20portfolio/image%20(65).png",
 ];
 
 export default function Preloader({ locale }: PreloaderProps) {
@@ -331,22 +331,6 @@ export default function Preloader({ locale }: PreloaderProps) {
           })}
         </div>
 
-        {/* Digital Counter & Action Labels */}
-        <div
-          style={{
-            opacity: percent === 100 ? 0 : 1,
-            visibility: percent === 100 ? "hidden" : "visible",
-            transition: "opacity 0.4s ease-out, visibility 0.4s",
-          }}
-          className="flex flex-col items-center gap-1.5 mt-2"
-        >
-          <span className="font-display text-4xl md:text-5xl font-extralight tracking-widest text-[#a855f7] drop-shadow-[0_0_15px_rgba(168,85,247,0.35)] select-none">
-            {String(percent).padStart(2, "0")}%
-          </span>
-          <span className="font-body text-[8px] md:text-[9px] font-bold tracking-[0.3em] uppercase text-zinc-500 select-none">
-            {isAr ? "تحميل أعمال الضوء والابتكار" : "IGNITING CREATIVE ILLUMINATIONS"}
-          </span>
-        </div>
 
       </div>
 
