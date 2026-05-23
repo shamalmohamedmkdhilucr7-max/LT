@@ -67,6 +67,20 @@ export default async function LocaleLayout({
         <meta name="apple-mobile-web-app-capable" content="yes" />
         <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
         <meta name="apple-mobile-web-app-title" content="Light Tower" />
+
+        {/* Blocking script to instantly hide preloader if session says it has loaded, preventing page flash */}
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              if (typeof window !== 'undefined' && sessionStorage.getItem('hasLoadedLightTower')) {
+                var style = document.createElement('style');
+                style.id = 'preloader-bypass-style';
+                style.innerHTML = '#global-preloader { display: none !important; }';
+                document.head.appendChild(style);
+              }
+            `,
+          }}
+        />
       </head>
       <body
         className={`${dmSans.variable} ${cormorant.variable} ${cairo.variable} bg-[#06060c] text-white antialiased overflow-x-hidden`}

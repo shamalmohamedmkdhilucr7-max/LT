@@ -245,20 +245,6 @@ export default function Preloader({ locale }: PreloaderProps) {
       }}
       className="fixed inset-0 bg-black z-[10000] flex flex-col items-center justify-center transition-transform duration-[1350ms] ease-[cubic-bezier(0.85,0,0.15,1)] overflow-hidden"
     >
-      {/* Inline script to instantly hide the preloader if it has already been loaded, preventing flash without modifying DOM classes to avoid hydration mismatch */}
-      <script
-        dangerouslySetInnerHTML={{
-          __html: `
-            if (typeof window !== 'undefined' && sessionStorage.getItem('hasLoadedLightTower')) {
-              var style = document.createElement('style');
-              style.id = 'preloader-bypass-style';
-              style.innerHTML = '#global-preloader { display: none !important; }';
-              document.head.appendChild(style);
-            }
-          `,
-        }}
-      />
-
       {/* ─── Opposing Scrolling Text Banners (Rogue Studio Marquee) ─── */}
       <div
         style={{
