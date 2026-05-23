@@ -267,16 +267,13 @@ export default function Preloader({ locale }: PreloaderProps) {
 
       {/* ─── Final State Big Typography (Rogue Studio Style) ─── */}
       {percent === 100 && (
-        <div className="absolute inset-0 flex flex-col items-center justify-center pointer-events-none select-none z-20 animate-fade-in-up">
+        <div className="absolute inset-0 flex flex-col items-center justify-center pointer-events-none select-none z-25 animate-fade-in-up">
           <div className="text-center flex flex-col items-center justify-center leading-none">
-            <span className="font-cormorant text-2xl md:text-5xl lg:text-6xl font-light tracking-[0.25em] text-white uppercase">
-              {isAr ? "إنارة المساحات •" : "CREATING SPACES *"}
+            <span className="font-cormorant text-xl md:text-3xl lg:text-4xl font-light tracking-[0.25em] text-white uppercase mb-2">
+              {isAr ? "إنارة المساحات" : "ILLUMINATING SPACES"}
             </span>
-            <span className="font-sans text-[11vw] md:text-[8vw] lg:text-[7vw] font-black tracking-tighter text-[#a855f7] drop-shadow-[0_0_25px_rgba(168,85,247,0.6)] uppercase leading-none my-3 md:my-4 font-stretch-condensed">
-              {isAr ? "مبهرة" : "IMPOSSIBLE"}
-            </span>
-            <span className="font-cormorant text-2xl md:text-5xl lg:text-6xl font-light tracking-[0.25em] text-white uppercase">
-              {isAr ? "للنسيان" : "TO IGNORE"}
+            <span className="font-sans text-[8vw] md:text-[6vw] lg:text-[5.5vw] font-black tracking-tighter text-[#a855f7] drop-shadow-[0_0_25px_rgba(168,85,247,0.6)] uppercase leading-none my-2 font-stretch-condensed">
+              {isAr ? "بفخامة ومشاعر" : "WITH LUXURY & EMOTION"}
             </span>
           </div>
         </div>
