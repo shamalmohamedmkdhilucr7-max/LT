@@ -39,7 +39,7 @@ export default async function LocaleLayout({
   const dir = locale === 'ar' ? 'rtl' : 'ltr';
 
   return (
-    <html lang={locale} dir={dir} className="scroll-smooth" data-scroll-behavior="smooth">
+    <html lang={locale} dir={dir} className="scroll-smooth" data-scroll-behavior="smooth" suppressHydrationWarning>
       <body
         className={`${dmSans.variable} ${cormorant.variable} ${cairo.variable} bg-[#06060c] text-white antialiased overflow-x-hidden`}
       >
