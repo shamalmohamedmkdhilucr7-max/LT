@@ -657,8 +657,7 @@ export const servicesData: ServiceItem[] = [
       "image (14).png",
       "image (25).png",
       "image (37).png",
-      "image (56).png",
-      "image (59).png"
+      "image (56).png"
     ],
     faqs: [
       {
