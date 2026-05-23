@@ -249,16 +249,16 @@ export default function Preloader({ locale }: PreloaderProps) {
         className="absolute inset-0 flex flex-col justify-center gap-24 pointer-events-none select-none z-0"
       >
         {/* Top Marquee (Moving Left) */}
-        <div className="w-full overflow-hidden opacity-[0.07]">
-          <div className="flex w-max animate-marquee-left font-cormorant italic text-4xl md:text-[64px] uppercase tracking-[0.15em] text-[#a855f7]">
+        <div className="w-full overflow-hidden opacity-[0.06]">
+          <div className="flex w-max animate-marquee-left font-sans font-extrabold text-3xl md:text-[54px] lg:text-[60px] uppercase tracking-[0.25em] text-[#a855f7]">
             <span>LIGHT TOWER ILLUMINATION • INSPIRING EXPERIENCES • ARCHITECTURAL LIGHTING • </span>
             <span>LIGHT TOWER ILLUMINATION • INSPIRING EXPERIENCES • ARCHITECTURAL LIGHTING • </span>
           </div>
         </div>
 
         {/* Bottom Marquee (Moving Right) */}
-        <div className="w-full overflow-hidden opacity-[0.07]">
-          <div className="flex w-max animate-marquee-right font-cormorant italic text-4xl md:text-[64px] uppercase tracking-[0.15em] text-[#a855f7]">
+        <div className="w-full overflow-hidden opacity-[0.06]">
+          <div className="flex w-max animate-marquee-right font-sans font-extrabold text-3xl md:text-[54px] lg:text-[60px] uppercase tracking-[0.25em] text-[#a855f7]">
             <span>LIGHT TOWER ILLUMINATION • INSPIRING EXPERIENCES • ARCHITECTURAL LIGHTING • </span>
             <span>LIGHT TOWER ILLUMINATION • INSPIRING EXPERIENCES • ARCHITECTURAL LIGHTING • </span>
           </div>
